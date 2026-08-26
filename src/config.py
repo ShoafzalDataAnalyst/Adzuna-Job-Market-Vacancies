@@ -1,13 +1,16 @@
 """
-config.py — Barcha sozlamalar bir joyda.
-.env fayldan o'qiydi; ishga tushirishda faqat shu faylni o'zgartirish kifoya.
+config.py — All settings in one place.
+
+Reads from a .env file so the pipeline can be reconfigured without touching
+any other module. Every value has a sane default, so the project also runs
+out of the box (e.g. inside GitHub Actions, where no .env file exists).
 """
 import os
 from dotenv import load_dotenv
 
 load_dotenv()
 
-# ── API ───────────────────────────────────────────────────────────────────────
+# ── HeadHunter API ──────────────────────────────────────────────────────────
 SEARCH_TEXT    = os.getenv("SEARCH_TEXT", "data analyst")
 AREA_ID        = os.getenv("AREA_ID", "97")        # 97 = Uzbekistan
 PER_PAGE       = int(os.getenv("PER_PAGE", "100"))
@@ -22,12 +25,10 @@ HEADERS = {
 BASE_LIST_URL   = "https://api.hh.ru/vacancies"
 BASE_DETAIL_URL = "https://api.hh.ru/vacancies/{}"
 
-# ── Database (SQL Server) ─────────────────────────────────────────────────────
-DB_SERVER  = os.getenv("DB_SERVER", "DESKTOP-8V34E53")
-DB_NAME    = os.getenv("DB_NAME", "headhunter")
-DB_DRIVER  = os.getenv("DB_DRIVER", "ODBC Driver 18 for SQL Server")
-DB_TRUSTED = os.getenv("DB_TRUSTED", "yes")
-DB_CERT    = os.getenv("DB_CERT", "yes")
+# ── Database (SQLite — free, file-based, no server required) ────────────────
+# The database is a single file committed to the repo. GitHub Actions
+# refreshes it on a schedule; Streamlit Cloud reads it to render the dashboard.
+DB_NAME = os.getenv("DB_NAME", "headhunter")
 
 # ── Output ────────────────────────────────────────────────────────────────────
 OUTPUT_DIR = os.getenv("OUTPUT_DIR", "output")

@@ -1,0 +1,42 @@
+name: Refresh vacancy data
+
+# Runs automatically on a schedule, and can also be triggered manually
+# from the GitHub Actions tab. This is what keeps the dashboard "live"
+# without any paid server: GitHub runs the pipeline for free, commits
+# the updated database, and Streamlit Cloud picks up the change and
+# redeploys automatically.
+on:
+  schedule:
+    - cron: "0 */6 * * *"   # every 6 hours
+  workflow_dispatch: {}      # manual "Run workflow" button
+
+permissions:
+  contents: write   # needed to commit the updated database back to the repo
+
+jobs:
+  run-etl:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run the ETL pipeline
+        working-directory: .
+        run: python src/main.py
+
+      - name: Commit updated database
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add output/*.db
+          git diff --cached --quiet || git commit -m "Auto-update vacancy data [skip ci]"
+          git push

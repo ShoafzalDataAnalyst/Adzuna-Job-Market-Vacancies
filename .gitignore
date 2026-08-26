@@ -10,9 +10,14 @@ __pycache__/
 etl.log
 *.log
 
-# Output (CSVs and PNGs)
-output/
+# Output — CSVs and chart images are regenerated on every run and don't
+# need to be tracked. The SQLite database IS tracked (see exception below)
+# because Streamlit Cloud reads it directly from the repository to render
+# the live dashboard.
+output/*.csv
+output/*.png
 src/output/
+!output/*.db
 
 # Jupyter
 .ipynb_checkpoints/
