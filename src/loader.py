@@ -23,16 +23,8 @@ log = logging.getLogger(__name__)
 # ── Engine ─────────────────────────────────────────────────────────────────────
 
 def build_engine():
-    """SQL Server uchun SQLAlchemy engine qaytaradi (Windows auth)."""
-    conn_str = (
-        f"DRIVER={{{config.DB_DRIVER}}};"
-        f"SERVER={config.DB_SERVER};"
-        f"DATABASE={config.DB_NAME};"
-        f"Trusted_Connection={config.DB_TRUSTED};"
-        f"TrustServerCertificate={config.DB_CERT};"
-    )
-    url = f"mssql+pyodbc:///?odbc_connect={quote_plus(conn_str)}"
-    return create_engine(url, fast_executemany=True)   # fast_executemany tezlikni oshiradi
+    db_path = os.path.join(config.OUTPUT_DIR, "headhunter.db")
+    return create_engine(f"sqlite:///{db_path}")
 
 
 # ── CSV eksport ────────────────────────────────────────────────────────────────
