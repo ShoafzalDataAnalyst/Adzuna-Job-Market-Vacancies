@@ -1,10 +1,10 @@
 name: Refresh vacancy data
 
 # Runs automatically on a schedule, and can also be triggered manually
-# from the GitHub Actions tab. This is what keeps the dashboard "live"
-# without any paid server: GitHub runs the pipeline for free, commits
-# the updated database, and Streamlit Cloud picks up the change and
-# redeploys automatically.
+# from the GitHub Actions tab. Runs on GitHub's own free cloud servers —
+# no need to keep your own PC on. This works for Adzuna (unlike the old
+# HeadHunter integration) because Adzuna is a commercial API designed for
+# exactly this kind of automated, cloud-based access.
 on:
   schedule:
     - cron: "0 */6 * * *"   # every 6 hours
@@ -15,11 +15,7 @@ permissions:
 
 jobs:
   run-etl:
-    # Runs on your own PC instead of GitHub's cloud servers, because
-    # hh.ru blocks requests coming from cloud/datacenter IP ranges
-    # (AWS, Azure, GCP — which includes GitHub-hosted runners).
-    # A residential IP does not have this problem.
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     steps:
       - name: Check out repository
@@ -34,7 +30,10 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run the ETL pipeline
-        working-directory: .
+        env:
+          ADZUNA_APP_ID: ${{ secrets.ADZUNA_APP_ID }}
+          ADZUNA_APP_KEY: ${{ secrets.ADZUNA_APP_KEY }}
+          ADZUNA_COUNTRIES: "gb,us"
         run: python src/main.py
 
       - name: Commit updated database
