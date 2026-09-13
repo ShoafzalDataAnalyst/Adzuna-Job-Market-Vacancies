@@ -43,6 +43,13 @@ TEST_MODE         = os.getenv("TEST_MODE", "false").lower() == "true"
 MAX_PAGES_TEST    = int(os.getenv("MAX_PAGES_TEST", "2"))
 REQUEST_DELAY     = float(os.getenv("REQUEST_DELAY", "0.3"))
 
+# Adzuna's free tier caps out at roughly 1,000 calls/month (~33/day).
+# This limit ALWAYS applies (not just in TEST_MODE) so scheduled runs
+# never silently exhaust the monthly quota. 10 pages/country/run x 2
+# countries x 1 run/day x 30 days ≈ 600 calls/month — safely under the cap,
+# with headroom left for manual test runs.
+MAX_PAGES_PER_COUNTRY = int(os.getenv("MAX_PAGES_PER_COUNTRY", "10"))
+
 BASE_SEARCH_URL = "https://api.adzuna.com/v1/api/jobs/{country}/search/{page}"
 
 # ── Database (SQLite — free, file-based, no server required) ────────────────

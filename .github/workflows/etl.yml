@@ -2,13 +2,14 @@ name: Refresh vacancy data
 
 # Runs automatically on a schedule, and can also be triggered manually
 # from the GitHub Actions tab. Runs on GitHub's own free cloud servers —
-# no need to keep your own PC on. This works for Adzuna (unlike the old
-# HeadHunter integration) because Adzuna is a commercial API designed for
-# exactly this kind of automated, cloud-based access.
+# no need to keep your own PC on. Adzuna's free tier caps out at ~1,000
+# calls/month, so this runs once a day (not every 6 hours) and the
+# pipeline itself caps pages per country — together these stay safely
+# under quota indefinitely.
 on:
   schedule:
-    - cron: "0 */6 * * *"   # every 6 hours
-  workflow_dispatch: {}      # manual "Run workflow" button
+    - cron: "0 6 * * *"    # once a day, 06:00 UTC
+  workflow_dispatch: {}     # manual "Run workflow" button
 
 permissions:
   contents: write   # needed to commit the updated database back to the repo
@@ -34,6 +35,7 @@ jobs:
           ADZUNA_APP_ID: ${{ secrets.ADZUNA_APP_ID }}
           ADZUNA_APP_KEY: ${{ secrets.ADZUNA_APP_KEY }}
           ADZUNA_COUNTRIES: "gb,us"
+          MAX_PAGES_PER_COUNTRY: "10"
         run: python src/main.py
 
       - name: Commit updated database

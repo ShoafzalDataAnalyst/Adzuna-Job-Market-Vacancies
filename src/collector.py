@@ -86,5 +86,9 @@ def iter_jobs(country: str, search_text: str) -> Generator[dict, None, None]:
         if config.TEST_MODE and page > config.MAX_PAGES_TEST:
             log.info("[%s] TEST_MODE: stopped after %d pages", country, config.MAX_PAGES_TEST)
             break
+        if page > config.MAX_PAGES_PER_COUNTRY:
+            log.info("[%s] Reached MAX_PAGES_PER_COUNTRY (%d) — stopping to respect Adzuna's free quota",
+                      country, config.MAX_PAGES_PER_COUNTRY)
+            break
 
         time.sleep(config.REQUEST_DELAY)
