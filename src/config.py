@@ -10,20 +10,40 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# ── HeadHunter API ──────────────────────────────────────────────────────────
-SEARCH_TEXT    = os.getenv("SEARCH_TEXT", "data analyst")
-AREA_ID        = os.getenv("AREA_ID", "97")        # 97 = Uzbekistan
-PER_PAGE       = int(os.getenv("PER_PAGE", "100"))
-TEST_MODE      = os.getenv("TEST_MODE", "false").lower() == "true"
-MAX_PAGES_TEST = int(os.getenv("MAX_PAGES_TEST", "3"))
-REQUEST_DELAY  = float(os.getenv("REQUEST_DELAY", "0.2"))
+# ── Adzuna API ────────────────────────────────────────────────────────────────
+# Free instant signup at https://developer.adzuna.com/ — no manual approval,
+# unlike HeadHunter's API, which now requires employer verification.
+ADZUNA_APP_ID  = os.getenv("ADZUNA_APP_ID", "")
+ADZUNA_APP_KEY = os.getenv("ADZUNA_APP_KEY", "")
 
-HEADERS = {
-    "User-Agent": os.getenv("USER_AGENT", "hh-uz-collector/2.0 (your@email.com)")
+# Comma-separated list of Adzuna country codes to collect from.
+# Supported by Adzuna: gb, us, at, au, br, ca, de, fr, in, it, mx, nl, pl, ru, sg, za
+# Collecting from more than one country lets the dashboard compare markets
+# (e.g. "UK vs US data analyst demand") side by side.
+ADZUNA_COUNTRIES = [c.strip() for c in os.getenv("ADZUNA_COUNTRIES", "gb,us").split(",") if c.strip()]
+
+# Human-readable country names and currency codes, keyed by Adzuna's country code.
+COUNTRY_NAMES = {
+    "gb": "United Kingdom", "us": "United States", "au": "Australia",
+    "ca": "Canada", "de": "Germany", "fr": "France", "in": "India",
+    "it": "Italy", "nl": "Netherlands", "pl": "Poland", "sg": "Singapore",
+    "za": "South Africa", "br": "Brazil", "mx": "Mexico", "at": "Austria",
+    "ru": "Russia",
+}
+COUNTRY_CURRENCY = {
+    "gb": "GBP", "us": "USD", "au": "AUD", "ca": "CAD", "de": "EUR",
+    "fr": "EUR", "in": "INR", "it": "EUR", "nl": "EUR", "pl": "PLN",
+    "sg": "SGD", "za": "ZAR", "br": "BRL", "mx": "MXN", "at": "EUR",
+    "ru": "RUB",
 }
 
-BASE_LIST_URL   = "https://api.hh.ru/vacancies"
-BASE_DETAIL_URL = "https://api.hh.ru/vacancies/{}"
+SEARCH_TEXT       = os.getenv("SEARCH_TEXT", "data analyst")
+RESULTS_PER_PAGE  = int(os.getenv("RESULTS_PER_PAGE", "50"))   # Adzuna's max per page
+TEST_MODE         = os.getenv("TEST_MODE", "false").lower() == "true"
+MAX_PAGES_TEST    = int(os.getenv("MAX_PAGES_TEST", "2"))
+REQUEST_DELAY     = float(os.getenv("REQUEST_DELAY", "0.3"))
+
+BASE_SEARCH_URL = "https://api.adzuna.com/v1/api/jobs/{country}/search/{page}"
 
 # ── Database (SQLite — free, file-based, no server required) ────────────────
 # The database is a single file committed to the repo. GitHub Actions

@@ -1,11 +1,12 @@
 """
-cleaner.py — Turns raw API JSON into clean Python dicts.
+cleaner.py — Turns raw Adzuna job JSON into clean Python dicts.
 
 Responsibility:
   - Text cleanup (whitespace, encoding)
-  - Salary parsing
-  - Skill normalization
-  - Splitting location into country / city
+  - Skill extraction (Adzuna has no structured skills field, unlike
+    HeadHunter's key_skills — so we scan title + description against a
+    known list of data-analyst-relevant skill keywords instead)
+  - Splitting the parsed location hierarchy into country / city
   - Managing normalization maps (companies, locations, skills), so each
     unique value gets a single stable numeric id across the whole run
 
@@ -17,7 +18,22 @@ import logging
 from dataclasses import dataclass, field
 from typing import Optional
 
+import config
+
 log = logging.getLogger(__name__)
+
+
+# ── Skill keyword dictionary ───────────────────────────────────────────────────
+# Adzuna doesn't tag structured skills like HeadHunter did, so we detect
+# mentions of common data-analyst-relevant tools/skills directly from the
+# job title and description text. This list can be extended over time.
+SKILL_KEYWORDS = [
+    "sql", "python", "r programming", "excel", "power bi", "tableau",
+    "looker", "dax", "vba", "sas", "spss", "aws", "azure", "gcp",
+    "snowflake", "spark", "hadoop", "airflow", "dbt", "etl",
+    "machine learning", "statistics", "powerpoint", "git", "javascript",
+    "mongodb", "nosql", "postgresql", "mysql", "bigquery", "redshift",
+]
 
 
 # ── Helper functions ──────────────────────────────────────────────────────────
@@ -29,32 +45,23 @@ def clean_text(value) -> Optional[str]:
     return re.sub(r"\s+", " ", str(value)).strip() or None
 
 
-def normalize_skill(skill: str) -> Optional[str]:
-    """Normalizes a skill name: lowercase, trimmed, dash characters unified."""
-    if not skill:
-        return None
-    return skill.strip().lower().replace("–", "-").replace("—", "-")
+def extract_skills(title: str, description: str) -> list[str]:
+    """Scans title + description text for known skill keywords."""
+    haystack = f"{title or ''} {description or ''}".lower()
+    return [kw for kw in SKILL_KEYWORDS if kw in haystack]
 
 
-def parse_salary(sal: dict | None) -> tuple[Optional[float], Optional[float], Optional[str]]:
-    """Returns (min, max, currency); (None, None, None) if no salary data."""
-    if not sal:
-        return None, None, None
-    return sal.get("from"), sal.get("to"), sal.get("currency")
-
-
-def split_area(area_name: str) -> tuple[str, str]:
+def split_location(area: list) -> tuple[str, str]:
     """
-    HH area names usually look like "Tashkent" or "Uzbekistan, Tashkent".
-    Returns (country, city).
+    Adzuna's location "area" field is a hierarchy list, e.g.
+    ["UK", "South East England", "Buckinghamshire", "Marlow"].
+    Returns (country, city) — country is the first element, city the last.
     """
-    if not area_name:
-        return "Uzbekistan", ""
-    parts = [p.strip() for p in area_name.split(",")]
-    if len(parts) == 1:
-        # Only a city name was given, so default the country to Uzbekistan
-        return "Uzbekistan", parts[0]
-    return parts[0], parts[1]
+    if not area:
+        return "Unknown", "Unknown"
+    country = area[0]
+    city = area[-1] if len(area) > 1 else area[0]
+    return country, city
 
 
 # ── Normalization state ───────────────────────────────────────────────────────
@@ -90,7 +97,7 @@ class NormalizationStore:
         return self.locations[key]["id"]
 
     def get_or_add_skill(self, raw_name: str) -> int | None:
-        norm = normalize_skill(raw_name)
+        norm = raw_name.strip().lower() if raw_name else None
         if not norm:
             return None
         if norm not in self.skills:
@@ -101,88 +108,63 @@ class NormalizationStore:
 
 # ── Main parser ────────────────────────────────────────────────────────────────
 
-def parse_vacancy(detail: dict, store: NormalizationStore) -> tuple[dict, list[dict]]:
+def parse_vacancy(job: dict, store: NormalizationStore) -> tuple[dict, list[dict]]:
     """
-    Converts a single vacancy JSON into a clean vacancy_row plus a list of
-    vacancy_skill links.
+    Converts a single Adzuna job JSON into a clean vacancy_row plus a list
+    of vacancy_skill links.
 
     Returns:
         vacancy_row  — one row for the vacancies table
         skill_links  — [{"h_id": ..., "skill_id": ...}] for the vacancy_skill table
     """
-    hid = detail.get("id")
+    country_code = job.get("_country", "")
+    # Prefix the id with the country code: Adzuna ids are not guaranteed
+    # unique *across* countries, only within one, and we collect from
+    # several countries into the same table.
+    hid = f"{country_code}_{job.get('id')}"
 
-    # ── Core fields ────────────────────────────────────────────────────────────
-    title    = clean_text(detail.get("name"))
-    category = _extract_category(detail)
-    published_at = detail.get("published_at") or ""
-    publish_date = published_at[:10] if published_at else None
+    title       = clean_text(job.get("title"))
+    description = clean_text(job.get("description"))
+    category    = clean_text((job.get("category") or {}).get("label"))
+    created     = job.get("created") or ""
+    publish_date = created[:10] if created else None
 
-    # ── Company ──────────────────────────────────────────────────────────────────
-    employer     = detail.get("employer") or {}
-    company_name = clean_text(employer.get("name"))
-    company_site = employer.get("alternate_url")
-    company_id   = store.get_or_add_company(company_name, company_site)
+    # ── Company ──────────────────────────────────────────────────────────────
+    company_name = clean_text((job.get("company") or {}).get("display_name"))
+    company_id   = store.get_or_add_company(company_name, None)  # Adzuna has no company website field
 
-    # ── Location ─────────────────────────────────────────────────────────────────
-    area_name  = (detail.get("area") or {}).get("name") or ""
-    country, city = split_area(area_name)
+    # ── Location ─────────────────────────────────────────────────────────────
+    area = (job.get("location") or {}).get("area") or []
+    country, city = split_location(area)
     location_id   = store.get_or_add_location(country, city)
 
-    # ── Salary ───────────────────────────────────────────────────────────────────
-    min_sal, max_sal, currency = parse_salary(detail.get("salary"))
+    # ── Salary ───────────────────────────────────────────────────────────────
+    min_sal  = job.get("salary_min")
+    max_sal  = job.get("salary_max")
+    currency = config.COUNTRY_CURRENCY.get(country_code, "USD")
+    is_predicted = bool(job.get("salary_is_predicted", 0))
 
-    # ── Skills ───────────────────────────────────────────────────────────────────
-    raw_skills = [ks.get("name") for ks in (detail.get("key_skills") or []) if ks.get("name")]
+    # ── Skills (keyword-extracted, since Adzuna has no structured field) ──────
+    raw_skills = extract_skills(title, description)
     skill_ids  = [store.get_or_add_skill(s) for s in raw_skills]
     skill_ids  = [sid for sid in skill_ids if sid is not None]
-    skill_names_norm = [normalize_skill(s) for s in raw_skills if normalize_skill(s)]
 
     vacancy_row = {
-        "h_id":        hid,
-        "title":       title,
-        "position":    _infer_position(title),   # extracted from the title
-        "category":    category,
-        "publish_date": publish_date,
-        "company":     company_name,
-        "company_id":  company_id,
-        "country":     country,
-        "location":    city,
-        "location_id": location_id,
-        "min_salary":  min_sal,
-        "max_salary":  max_sal,
-        "currency":    currency,
-        "skills":      ";".join(skill_names_norm),   # for CSV export and the dashboard
+        "h_id":          hid,
+        "title":         title,
+        "position":      title,   # Adzuna has no separate "role" field; title doubles as position
+        "category":      category,
+        "publish_date":  publish_date,
+        "company":       company_name,
+        "country":       config.COUNTRY_NAMES.get(country_code, country),
+        "location":      city,
+        "min_salary":    min_sal,
+        "max_salary":    max_sal,
+        "currency":      currency,
+        "salary_is_predicted": is_predicted,
+        "skills":        ";".join(raw_skills),   # for CSV export and the dashboard
+        "source_url":    job.get("redirect_url"),
     }
 
     skill_links = [{"h_id": hid, "skill_id": sid} for sid in skill_ids]
     return vacancy_row, skill_links
-
-
-# ── Internal helpers ────────────────────────────────────────────────────────────
-
-def _extract_category(detail: dict) -> Optional[str]:
-    """Extracts a category from HH's 'specializations' or 'professional_roles'."""
-    # Current API field
-    roles = detail.get("professional_roles") or []
-    if roles:
-        return clean_text(roles[0].get("name"))
-    # Older API field, kept as a fallback
-    specs = detail.get("specializations") or []
-    if specs:
-        sp = specs[0]
-        return clean_text(sp.get("profarea_name") or sp.get("name"))
-    return None
-
-
-def _infer_position(title: str | None) -> Optional[str]:
-    """
-    Infers the job position from the vacancy title.
-    Example: "Junior Data Analyst (Tashkent)" → "Junior Data Analyst"
-    Could be replaced with an ML classifier in the future for better accuracy.
-    """
-    if not title:
-        return None
-    # Strips out parenthesized/bracketed extras
-    clean = re.sub(r"\(.*?\)|\[.*?\]", "", title).strip()
-    return clean or title

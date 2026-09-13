@@ -123,10 +123,32 @@ def _upsert_vacancy_skill(df: pd.DataFrame, engine) -> int:
 # These views pre-aggregate the data so the Streamlit dashboard can run a
 # single simple SELECT instead of repeating complex logic in Python.
 # SQLite has no "CREATE OR ALTER VIEW", so we drop and recreate each one.
+#
+# Approximate currency-to-USD rates, used only to make cross-country salary
+# comparisons readable on the dashboard. These are fixed, illustrative rates,
+# not live exchange rates — good enough for a portfolio project, not for
+# financial decisions.
+_FX_TO_USD_CASE = """
+    CASE currency
+        WHEN 'USD' THEN 1.0
+        WHEN 'GBP' THEN 1.27
+        WHEN 'EUR' THEN 1.08
+        WHEN 'AUD' THEN 0.66
+        WHEN 'CAD' THEN 0.73
+        WHEN 'INR' THEN 0.012
+        WHEN 'PLN' THEN 0.25
+        WHEN 'SGD' THEN 0.74
+        WHEN 'ZAR' THEN 0.055
+        WHEN 'BRL' THEN 0.18
+        WHEN 'MXN' THEN 0.05
+        WHEN 'RUB' THEN 0.011
+        ELSE 1.0
+    END
+"""
 
 DASHBOARD_VIEWS = {
 
-    "vw_vacancies_full": """
+    "vw_vacancies_full": f"""
         CREATE VIEW vw_vacancies_full AS
         SELECT
             v.h_id,
@@ -140,19 +162,11 @@ DASHBOARD_VIEWS = {
             v.min_salary,
             v.max_salary,
             v.currency,
-            -- Rough USD conversion so salaries are comparable across currencies
-            CASE v.currency
-                WHEN 'UZS' THEN v.min_salary / 12500.0
-                WHEN 'USD' THEN v.min_salary
-                WHEN 'EUR' THEN v.min_salary * 1.08
-                ELSE v.min_salary
-            END AS min_salary_usd,
-            CASE v.currency
-                WHEN 'UZS' THEN v.max_salary / 12500.0
-                WHEN 'USD' THEN v.max_salary
-                WHEN 'EUR' THEN v.max_salary * 1.08
-                ELSE v.max_salary
-            END AS max_salary_usd,
+            v.salary_is_predicted,
+            v.source_url,
+            -- Approximate USD conversion so salaries are comparable across countries
+            v.min_salary * ({_FX_TO_USD_CASE}) AS min_salary_usd,
+            v.max_salary * ({_FX_TO_USD_CASE}) AS max_salary_usd,
             v.skills
         FROM vacancies v
     """,
@@ -169,58 +183,77 @@ DASHBOARD_VIEWS = {
         GROUP BY s.name
     """,
 
-    "vw_salary_by_category": """
+    "vw_skill_demand_by_country": """
+        CREATE VIEW vw_skill_demand_by_country AS
+        SELECT
+            v.country,
+            s.name         AS skill_name,
+            COUNT(vs.h_id) AS vacancy_count
+        FROM skills s
+        JOIN vacancy_skill vs ON vs.skill_id = s.id
+        JOIN vacancies v      ON v.h_id = vs.h_id
+        GROUP BY v.country, s.name
+    """,
+
+    "vw_salary_by_category": f"""
         CREATE VIEW vw_salary_by_category AS
         SELECT
             category,
+            country,
             COUNT(*) AS vacancy_count,
-            AVG(CASE currency WHEN 'UZS' THEN min_salary / 12500.0
-                              WHEN 'EUR' THEN min_salary * 1.08
-                              ELSE min_salary END) AS avg_min_usd,
-            AVG(CASE currency WHEN 'UZS' THEN max_salary / 12500.0
-                              WHEN 'EUR' THEN max_salary * 1.08
-                              ELSE max_salary END) AS avg_max_usd
+            AVG(min_salary * ({_FX_TO_USD_CASE})) AS avg_min_usd,
+            AVG(max_salary * ({_FX_TO_USD_CASE})) AS avg_max_usd
         FROM vacancies
         WHERE category IS NOT NULL
-        GROUP BY category
+        GROUP BY category, country
     """,
 
     "vw_daily_posting_trend": """
         CREATE VIEW vw_daily_posting_trend AS
         SELECT
             publish_date,
+            country,
             COUNT(*)                AS vacancies_posted,
             COUNT(DISTINCT company) AS unique_companies,
-            SUM(COUNT(*)) OVER (ORDER BY publish_date ROWS UNBOUNDED PRECEDING)
+            SUM(COUNT(*)) OVER (PARTITION BY country ORDER BY publish_date ROWS UNBOUNDED PRECEDING)
                                      AS cumulative_total
         FROM vacancies
-        GROUP BY publish_date
+        GROUP BY publish_date, country
     """,
 
-    "vw_top_hiring_companies": """
+    "vw_top_hiring_companies": f"""
         CREATE VIEW vw_top_hiring_companies AS
         SELECT
             v.company,
-            c.website,
+            v.country,
             COUNT(v.h_id)       AS open_positions,
             MIN(v.publish_date) AS first_posted,
             MAX(v.publish_date) AS last_posted,
-            AVG(CASE v.currency WHEN 'UZS' THEN v.max_salary / 12500.0
-                                ELSE v.max_salary END) AS avg_max_salary_usd
+            AVG(v.max_salary * ({_FX_TO_USD_CASE})) AS avg_max_salary_usd
         FROM vacancies v
-        LEFT JOIN companies c ON c.name = v.company
-        GROUP BY v.company, c.website
+        GROUP BY v.company, v.country
     """,
 
-    "vw_location_heatmap": """
+    "vw_country_summary": f"""
+        CREATE VIEW vw_country_summary AS
+        SELECT
+            country,
+            COUNT(*)                       AS vacancy_count,
+            COUNT(DISTINCT company)        AS company_count,
+            AVG(min_salary * ({_FX_TO_USD_CASE})) AS avg_min_salary_usd,
+            AVG(max_salary * ({_FX_TO_USD_CASE})) AS avg_max_salary_usd
+        FROM vacancies
+        GROUP BY country
+    """,
+
+    "vw_location_heatmap": f"""
         CREATE VIEW vw_location_heatmap AS
         SELECT
             country,
             location AS city,
             COUNT(*) AS vacancy_count,
             COUNT(DISTINCT company) AS company_count,
-            AVG(CASE currency WHEN 'UZS' THEN min_salary / 12500.0
-                              ELSE min_salary END) AS avg_min_usd
+            AVG(min_salary * ({_FX_TO_USD_CASE})) AS avg_min_usd
         FROM vacancies
         GROUP BY country, location
     """,

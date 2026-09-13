@@ -1,5 +1,5 @@
 """
-collector.py — Sends vacancy list and detail requests to the HeadHunter API.
+collector.py — Sends job search requests to the Adzuna API.
 
 Responsibility (single responsibility principle):
   - Talk to the API
@@ -8,23 +8,28 @@ Responsibility (single responsibility principle):
 
 This module never touches the database or pandas — it only knows about
 HTTP requests.
+
+Note: unlike the old HeadHunter integration, Adzuna's search endpoint
+returns full job details (title, company, salary, description, etc.) in
+a single call per page — there is no separate "fetch detail by id" step.
 """
 
 import time
 import logging
-import requests
 from typing import Generator
+
+import requests
 
 import config
 
 log = logging.getLogger(__name__)
 
 
-def _get(url: str, params: dict = None, retries: int = 3) -> dict | None:
+def _get(url: str, params: dict, retries: int = 3) -> dict | None:
     """Sends a GET request, retrying on network errors or rate limiting."""
     for attempt in range(1, retries + 1):
         try:
-            resp = requests.get(url, params=params, headers=config.HEADERS, timeout=30)
+            resp = requests.get(url, params=params, timeout=30)
             if resp.status_code == 200:
                 return resp.json()
             if resp.status_code == 429:          # Too Many Requests
@@ -40,72 +45,46 @@ def _get(url: str, params: dict = None, retries: int = 3) -> dict | None:
     return None
 
 
-def find_area_id(name_hints: tuple = ("uzbekistan", "ўзбекистон", "uzbek")) -> str | None:
-    """Finds Uzbekistan's area id from HH's list of areas."""
-    data = _get("https://api.hh.ru/areas")
-    if not data:
-        return None
-
-    def _search(nodes: list) -> str | None:
-        for node in nodes:
-            if any(h in (node.get("name") or "").lower() for h in name_hints):
-                return node["id"]
-            children = node.get("areas") or node.get("items") or []
-            found = _search(children)
-            if found:
-                return found
-        return None
-
-    return _search(data)
-
-
-def iter_vacancy_ids(area_id: str, search_text: str) -> Generator[str, None, None]:
+def iter_jobs(country: str, search_text: str) -> Generator[dict, None, None]:
     """
-    Yields vacancy ids page by page (generator).
-    Memory-efficient: only one page of results is held in memory at a time.
+    Yields raw job dicts, page by page, for a single Adzuna country.
+    Memory-efficient generator: only one page of results is held in memory
+    at a time.
     """
-    page = 0
-    total_pages = None
+    page = 1
+    total_seen = 0
 
     while True:
+        url = config.BASE_SEARCH_URL.format(country=country, page=page)
         params = {
-            "area": area_id,
-            "text": search_text,
-            "page": page,
-            "per_page": config.PER_PAGE,
+            "app_id": config.ADZUNA_APP_ID,
+            "app_key": config.ADZUNA_APP_KEY,
+            "results_per_page": config.RESULTS_PER_PAGE,
+            "what": search_text,
+            "content-type": "application/json",
         }
-        data = _get(config.BASE_LIST_URL, params=params)
+
+        data = _get(url, params)
         if not data:
-            log.error("List request failed (page %d)", page)
+            log.error("[%s] Search request failed (page %d)", country, page)
             break
 
-        if total_pages is None:
-            total_pages = data.get("pages", 1)
-            log.info("Total pages: %d", total_pages)
-
-        items = data.get("items", [])
-        if not items:
-            log.info("Page %d is empty — stopping", page)
+        results = data.get("results", [])
+        if not results:
+            log.info("[%s] Page %d is empty — stopping", country, page)
             break
 
-        for item in items:
-            yield item["id"]
+        for job in results:
+            job["_country"] = country   # tag each job with its source country
+            yield job
 
-        log.info("Page %d/%d — %d ids retrieved", page + 1, total_pages, len(items))
+        total_seen += len(results)
+        log.info("[%s] Page %d — %d jobs retrieved (running total: %d)",
+                  country, page, len(results), total_seen)
+
         page += 1
-
-        if config.TEST_MODE and page >= config.MAX_PAGES_TEST:
-            log.info("TEST_MODE: stopped after %d pages", config.MAX_PAGES_TEST)
-            break
-        if page >= total_pages:
+        if config.TEST_MODE and page > config.MAX_PAGES_TEST:
+            log.info("[%s] TEST_MODE: stopped after %d pages", country, config.MAX_PAGES_TEST)
             break
 
         time.sleep(config.REQUEST_DELAY)
-
-
-def fetch_vacancy_detail(vacancy_id: str) -> dict | None:
-    """Returns the full JSON details for a single vacancy."""
-    url = config.BASE_DETAIL_URL.format(vacancy_id)
-    detail = _get(url)
-    time.sleep(config.REQUEST_DELAY)
-    return detail
