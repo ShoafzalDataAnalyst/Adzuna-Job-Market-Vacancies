@@ -27,7 +27,7 @@ st.set_page_config(
 # Path to the database created by the ETL pipeline (src/loader.py).
 # Assumes this app is launched from the project root, matching the
 # OUTPUT_DIR/DB_NAME defaults used by config.py.
-DB_PATH = os.path.join("output", "headhunter.db")
+DB_PATH = os.path.join("output", "adzuna.db")
 
 
 @st.cache_data(ttl=3600)  # re-read the database at most once per hour

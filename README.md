@@ -1,205 +1,97 @@
-# 🔍 HeadHunter Vacancy Collector
+# Data Analyst Job Market Dashboard
 
-> A production-grade ETL pipeline that collects **Data Analyst** job vacancies from [hh.uz](https://hh.uz) via REST API, cleans and normalizes the data, loads it into SQL Server, and visualizes hiring trends in a **Power BI dashboard**.
+A live, self-updating dashboard tracking Data Analyst vacancies across the UK and US job markets — built entirely on free infrastructure.
 
----
-
-## 📊 Dashboard Preview
-
-![Dashboard](docs/dashboard_preview.png)
-
-**Key Insights (September 2025):**
-- 🏢 **71** active vacancies across **59** companies
-- 🛠️ **SQL, Python, Power BI** are the top 3 demanded skills
-- 💰 Only **12.68%** of companies disclose salary
-- 🏦 **Ipotekabank OTP Group, TBC, AVO.UZ** are top hirers
+**Live dashboard:** http://adzuna-job-market-vacancies.streamlit.app/
 
 ---
 
-## 🏗️ Architecture
+## What this project does
+
+Every day, an automated pipeline collects live "Data Analyst" job postings from the [Adzuna](https://developer.adzuna.com/) API across two markets (UK and US), cleans and normalizes the data, extracts skill mentions from job descriptions, and loads everything into a SQLite database. A Streamlit dashboard reads that database and lets anyone — recruiters, hiring managers, or other job seekers — explore the market with zero setup, just a link.
+
+No manual re-running, no local server, no paid infrastructure. Once configured, it maintains itself.
+
+## Live features
+
+- **Market comparison** — vacancy counts and average salaries side-by-side across countries
+- **Skill demand ranking** — most-requested tools/skills, extracted directly from job descriptions and titles
+- **Posting trend over time** — cumulative vacancies per market
+- **Top hiring companies** — ranked by number of open positions
+- **Salary by job category** — converted to a common USD basis for comparability
+- **Searchable/browsable raw vacancy table** with direct links back to each listing
+
+## Architecture
 
 ```
-┌─────────────────────────────────────────────────────┐
-│                    src/main.py                       │
-│              (ETL Orchestrator)                      │
-└───────────┬─────────────────┬───────────────────────┘
-            │                 │
-     ┌──────▼──────┐   ┌──────▼──────┐
-     │ collector.py│   │  cleaner.py │
-     │  HH API     │   │  Transform  │
-     │  + Retry    │   │  + Normalize│
-     └──────┬──────┘   └──────┬──────┘
-            └────────┬─────────┘
-                     │
-              ┌──────▼──────┐
-              │  loader.py  │
-              │  SQL Server │
-              │  CSV Export │
-              │  Power BI   │
-              │  Views      │
-              └─────────────┘
+GitHub Actions (free, scheduled once daily)
+        │
+        ▼
+  collector.py  →  cleaner.py  →  loader.py
+  (Adzuna API)     (parsing,       (SQLite +
+                    skill           dashboard
+                    extraction)     views)
+        │
+        ▼
+  adzuna.db (SQLite file, committed back to the repo automatically)
+        │
+        ▼
+  Streamlit Community Cloud (dashboard/app.py)
+        │
+        ▼
+  Public URL — anyone can open it, always showing the latest data
 ```
 
-### Database Schema
+Nothing here requires a server, a paid database, or a machine that has to stay on. GitHub Actions runs the collection job on its own free cloud runners; Streamlit Cloud redeploys automatically whenever the database file changes.
+
+## Tech stack
+
+- **Python** — `requests`, `pandas`, `SQLAlchemy`
+- **SQLite** — the entire database is a single file, version-controlled in the repo
+- **Streamlit + Plotly** — the live dashboard
+- **GitHub Actions** — scheduled automation, no infrastructure to maintain
+- **Adzuna API** — job listings data source (UK + US)
+
+## Project structure
 
 ```
-companies ──────────────────────────┐
-locations ──────────────────────────┤
-                                    ▼
-                               vacancies  ◄──── vacancy_skill ◄──── skills
-```
-
----
-
-## 🛠️ Tech Stack
-
-| Layer | Tool |
-|---|---|
-| Language | Python 3.11+ |
-| Data Collection | `requests` with retry + exponential backoff |
-| Data Processing | `pandas`, `numpy` |
-| Storage | SQL Server Express + `pyodbc`, `SQLAlchemy` |
-| Config | `python-dotenv` |
-| Analysis | Jupyter Notebook + `matplotlib` |
-| Visualization | Power BI Desktop |
-
----
-
-## 📁 Project Structure
-
-```
-HeadHunter-Vacancy-Collector/
+├── .github/workflows/etl.yml   # scheduled automation (runs once daily)
+├── dashboard/app.py            # the live Streamlit dashboard
+├── sql/schema.sql              # database schema reference
 ├── src/
-│   ├── main.py          # ETL pipeline entry point
-│   ├── collector.py     # HH API: list + detail fetching, retry logic
-│   ├── cleaner.py       # Data cleaning, normalization, skill parsing
-│   ├── loader.py        # SQL Server upsert, CSV export, Power BI views
-│   └── config.py        # All settings via .env
-├── sql/
-│   └── schema.sql       # SQL Server table definitions (idempotent)
-├── docs/
-│   └── dashboard_preview.png
-├── analysis.ipynb       # EDA, data cleaning, visualizations
-├── hh_dashboard.pbix    # Power BI dashboard file
-├── .env.example         # Environment variable template
-├── requirements.txt
-└── README.md
+│   ├── config.py                # settings, env vars, country/currency maps
+│   ├── collector.py             # talks to the Adzuna API
+│   ├── cleaner.py               # parsing, normalization, skill extraction
+│   ├── loader.py                # SQLite loading + dashboard views
+│   └── main.py                  # orchestrates the full pipeline
+├── output/adzuna.db             # the database itself (auto-updated)
+├── env.example                  # template for local configuration
+└── requirements.txt
 ```
 
----
+## Running it yourself
 
-## 🚀 Quick Start
+1. Clone the repo
+2. Get free Adzuna API credentials at [developer.adzuna.com](https://developer.adzuna.com/) — instant signup, no approval wait
+3. Copy `env.example` to `.env` and fill in your `ADZUNA_APP_ID` and `ADZUNA_APP_KEY`
+4. Install dependencies: `pip install -r requirements.txt`
+5. Run the pipeline: `python src/main.py`
+6. Launch the dashboard locally: `streamlit run dashboard/app.py`
 
-### 1. Clone & set up
+## How the automation works
 
-```bash
-git clone https://github.com/ShoafzalDataAnalyst/HeadHunter-Vacancy-Collector.git
-cd HeadHunter-Vacancy-Collector
-python -m venv .venv
-.venv\Scripts\activate        # Windows
-# source .venv/bin/activate   # macOS / Linux
-pip install -r requirements.txt
-```
+`.github/workflows/etl.yml` runs the pipeline once every 24 hours on GitHub's free cloud infrastructure, then commits the refreshed database straight back to the repo. Streamlit Community Cloud watches the repo and redeploys automatically whenever that file changes — so the public dashboard always reflects the latest run, with no manual steps.
 
-### 2. Configure environment
+Two settings keep this sustainable on Adzuna's free tier (~1,000 API calls/month):
+- Collection is capped at `MAX_PAGES_PER_COUNTRY` (default 10) pages per country per run
+- The schedule runs once daily rather than more frequently
 
-```bash
-cp .env.example .env
-# Open .env and set DB_SERVER to your SQL Server instance name
-```
+Both are configurable via environment variables if you have a higher API quota.
 
-### 3. Create the database
+## Skill detection
 
-Open `sql/schema.sql` in SQL Server Management Studio (SSMS) and run it. This creates all 5 tables: `companies`, `locations`, `skills`, `vacancies`, `vacancy_skill`.
+Adzuna doesn't tag postings with structured skills the way some job APIs do, so skills are detected by scanning each posting's title and description against a known keyword list (see `SKILL_KEYWORDS` in `src/cleaner.py`). This list is easy to extend as new tools become relevant.
 
-### 4. Run the ETL pipeline
+## Previous version
 
-```bash
-# Full collection:
-python src/main.py
-
-# Test mode (~30 vacancies, 3 pages) — set TEST_MODE=true in .env first
-```
-
-### 5. Open the dashboard
-
-```
-Power BI Desktop → Open → hh_dashboard.pbix
-Connect: Server: localhost\SQLEXPRESS | Database: headhunter
-```
-
----
-
-## 📈 Power BI Views
-
-After running the pipeline, these views are auto-created in SQL Server and ready to connect to Power BI:
-
-| View | Description |
-|---|---|
-| `vw_vacancies_full` | Main fact table with USD-normalized salaries |
-| `vw_skill_demand` | Skill frequency → bar/treemap charts |
-| `vw_salary_by_category` | Salary range by job category |
-| `vw_daily_posting_trend` | Trend line + cumulative total |
-| `vw_top_hiring_companies` | Company leaderboard |
-| `vw_location_heatmap` | Geographic distribution |
-
----
-
-## 🗂️ Data Collected
-
-| Column | Description |
-|---|---|
-| `h_id` | Unique HeadHunter vacancy ID (dedup key) |
-| `title` | Full vacancy title as posted |
-| `position` | Inferred role (cleaned from title) |
-| `category_en` | Professional area in English |
-| `publish_date` | First posting date (YYYY-MM-DD) |
-| `company` | Employer name |
-| `skills` | Semicolon-separated required skills |
-| `skill_type` | Technical / Soft / Language |
-| `location` | City / region |
-| `min_salary_usd` | Minimum salary normalized to USD |
-| `max_salary_usd` | Maximum salary normalized to USD |
-
----
-
-## ⚙️ Key Design Decisions
-
-- **Modular** — collector, cleaner, and loader are fully independent modules
-- **Idempotent** — re-running never duplicates data (upsert by `h_id`)
-- **Rate-safe** — exponential backoff on HTTP 429, configurable request delay
-- **Power BI-ready** — salaries normalized to USD, skill types classified
-- **Clean data** — Cyrillic company names and skills translated to English
-
----
-
-## 🔧 .env Example
-
-```env
-SEARCH_TEXT=data analyst
-AREA_ID=97
-PER_PAGE=100
-TEST_MODE=false
-REQUEST_DELAY=0.2
-DB_SERVER=localhost\SQLEXPRESS
-DB_NAME=headhunter
-DB_DRIVER=ODBC Driver 18 for SQL Server
-DB_TRUSTED=yes
-OUTPUT_DIR=output
-LOG_LEVEL=INFO
-```
-
----
-
-## 📧 Contact
-
-**Shoafzal Shomuhidov**
-- GitHub: [@ShoafzalDataAnalyst](https://github.com/ShoafzalDataAnalyst)
-- LinkedIn: [shoafzal-shomuhidov](https://www.linkedin.com/in/shoafzal-shomuhidov-15b647389/)
-- Email: shomuhidov.shoafzal@gmail.com
-
----
-
-## 📄 License
-
-MIT — free to use, adapt, and extend.
+An earlier version of this project collected data from HeadHunter.uz using SQL Server and Power BI, targeting the Uzbekistan job market. HeadHunter's public API has since restricted unauthenticated access, so the project was rebuilt on Adzuna. The original version is preserved at [Release v1-hh-uz-sqlserver](../../releases/tag/v1-hh-uz-sqlserver) for reference.

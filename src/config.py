@@ -55,7 +55,7 @@ BASE_SEARCH_URL = "https://api.adzuna.com/v1/api/jobs/{country}/search/{page}"
 # ── Database (SQLite — free, file-based, no server required) ────────────────
 # The database is a single file committed to the repo. GitHub Actions
 # refreshes it on a schedule; Streamlit Cloud reads it to render the dashboard.
-DB_NAME = os.getenv("DB_NAME", "headhunter")
+DB_NAME = os.getenv("DB_NAME", "adzuna")
 
 # ── Output ────────────────────────────────────────────────────────────────────
 OUTPUT_DIR = os.getenv("OUTPUT_DIR", "output")
