@@ -16,17 +16,42 @@ from datetime import datetime, timezone
 
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objects as go
 import streamlit as st
 
 # ── Page setup ────────────────────────────────────────────────────────────────
 st.set_page_config(
     page_title="Data Analyst Vacancy Dashboard",
+    page_icon="📊",
     layout="wide",
+    initial_sidebar_state="expanded",
 )
 
-# Path to the database created by the ETL pipeline (src/loader.py).
-# Assumes this app is launched from the project root, matching the
-# OUTPUT_DIR/DB_NAME defaults used by config.py.
+# A small consistent accent color used across charts and cards, so the whole
+# dashboard reads as one designed thing rather than a stack of default charts.
+ACCENT = "#4F8BF9"
+ACCENT_DARK = "#2E5FCC"
+
+# Light custom styling: rounded metric cards and tighter spacing. Kept minimal
+# on purpose — Streamlit's own theme already handles dark mode and layout;
+# this just polishes the parts that look most "default" out of the box.
+st.markdown(f"""
+    <style>
+        div[data-testid="stMetric"] {{
+            background-color: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 10px;
+            padding: 14px 18px;
+        }}
+        div[data-testid="stMetricValue"] {{
+            font-size: 1.6rem;
+        }}
+        .block-container {{
+            padding-top: 2rem;
+        }}
+    </style>
+""", unsafe_allow_html=True)
+
 DB_PATH = os.path.join("output", "adzuna.db")
 
 
@@ -51,13 +76,23 @@ def load_data(db_path: str) -> dict[str, pd.DataFrame]:
     return data
 
 
+def apply_chart_theme(fig: go.Figure) -> go.Figure:
+    """Applies one consistent look to every Plotly chart in the app."""
+    fig.update_layout(
+        margin=dict(l=10, r=10, t=30, b=10),
+        plot_bgcolor="rgba(0,0,0,0)",
+        paper_bgcolor="rgba(0,0,0,0)",
+        font=dict(size=13),
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="left", x=0),
+    )
+    return fig
+
+
 # ── Load data ─────────────────────────────────────────────────────────────────
 data = load_data(DB_PATH)
 
-st.title("📊 Data Analyst Vacancy Dashboard")
-st.caption("Live job market data collected from Adzuna, refreshed automatically.")
-
 if not data:
+    st.title("📊 Data Analyst Vacancy Dashboard")
     st.warning(
         "No database found yet. Run `python src/main.py` at least once "
         "to populate the dashboard."
@@ -72,71 +107,96 @@ df_trend    = data["daily_trend"]
 df_top      = data["top_companies"]
 df_country  = data["country_summary"]
 
-# Shows when the database file was last modified, so viewers know how
-# fresh the data is (GitHub Actions updates this on its own schedule).
 last_updated = datetime.fromtimestamp(os.path.getmtime(DB_PATH), tz=timezone.utc)
-st.caption(f"Data last refreshed: {last_updated:%Y-%m-%d %H:%M UTC}")
 
-# ── Country filter ────────────────────────────────────────────────────────────
-# Since the pipeline can collect from several Adzuna markets at once
-# (e.g. UK and US), let the viewer narrow to one, or compare all of them.
-countries = ["All countries"] + sorted(df_vac_all["country"].dropna().unique().tolist())
-selected_country = st.selectbox("Filter by country", countries)
+# ── Sidebar: branding, context, and filters ───────────────────────────────────
+with st.sidebar:
+    st.markdown("## 📊 Vacancy Dashboard")
+    st.caption("Data Analyst job market, tracked automatically.")
+    st.divider()
+
+    countries = ["All countries"] + sorted(df_vac_all["country"].dropna().unique().tolist())
+    selected_country = st.selectbox("Filter by country", countries)
+
+    st.divider()
+    st.caption(f"🕒 Data refreshed: {last_updated:%d %b %Y, %H:%M UTC}")
+
+    with st.expander("ℹ️ About this dashboard"):
+        st.markdown(
+            "Collected daily from the [Adzuna](https://developer.adzuna.com/) "
+            "job search API. Skills are detected by scanning job titles and "
+            "descriptions against a known keyword list. Salaries are "
+            "converted to an approximate USD figure for cross-country "
+            "comparison.\n\n"
+            "Built with Python, SQLite, and Streamlit — automated end-to-end "
+            "with GitHub Actions on free infrastructure."
+        )
 
 if selected_country != "All countries":
     df_vac = df_vac_all[df_vac_all["country"] == selected_country]
 else:
     df_vac = df_vac_all
 
-st.divider()
+# ── Header ────────────────────────────────────────────────────────────────────
+st.title("Data Analyst Job Market")
+st.caption(
+    "Live vacancy tracking across the UK and US — updated daily, no manual work."
+)
 
 # ── Top-line metrics ──────────────────────────────────────────────────────────
 col1, col2, col3, col4 = st.columns(4)
-col1.metric("Active vacancies", len(df_vac))
-col2.metric("Companies hiring", df_vac["company"].nunique())
-col3.metric("Cities covered", df_vac["location"].nunique())
+col1.metric("Active vacancies", f"{len(df_vac):,}")
+col2.metric("Companies hiring", f"{df_vac['company'].nunique():,}")
+col3.metric("Cities covered", f"{df_vac['location'].nunique():,}")
 salary_disclosed_pct = (df_vac["min_salary_usd"].notna().mean() * 100) if len(df_vac) else 0
-col4.metric("Salary disclosed", f"{salary_disclosed_pct:.1f}%")
+col4.metric("Salary disclosed", f"{salary_disclosed_pct:.0f}%")
 
-st.divider()
+st.write("")
 
-# ── Country comparison (only shown when viewing all countries) ───────────────
-if selected_country == "All countries" and len(df_country) > 1:
-    st.subheader("Market comparison by country")
-    left, right = st.columns(2)
+# ── Tabbed sections — keeps the dashboard scannable instead of one long scroll
+tab_overview, tab_skills, tab_companies, tab_browse = st.tabs(
+    ["📈 Overview", "🛠️ Skills & Trends", "🏢 Companies & Salary", "🔎 Browse Vacancies"]
+)
 
-    with left:
-        fig = px.bar(
-            df_country, x="country", y="vacancy_count",
-            labels={"country": "Country", "vacancy_count": "Open vacancies"},
-        )
-        st.plotly_chart(fig, use_container_width=True)
+# ── Tab 1: Overview ───────────────────────────────────────────────────────────
+with tab_overview:
+    if selected_country == "All countries" and len(df_country) > 1:
+        st.subheader("Market comparison by country")
+        left, right = st.columns(2)
 
-    with right:
-        fig = px.bar(
-            df_country, x="country", y=["avg_min_salary_usd", "avg_max_salary_usd"],
-            barmode="group",
-            labels={"country": "Country", "value": "Average salary (USD)"},
-        )
-        st.plotly_chart(fig, use_container_width=True)
+        with left:
+            fig = px.bar(
+                df_country, x="country", y="vacancy_count",
+                labels={"country": "Country", "vacancy_count": "Open vacancies"},
+                color="country", color_discrete_sequence=[ACCENT, ACCENT_DARK],
+            )
+            fig.update_layout(showlegend=False)
+            st.plotly_chart(apply_chart_theme(fig), use_container_width=True)
 
-    st.divider()
+        with right:
+            fig = px.bar(
+                df_country, x="country", y=["avg_min_salary_usd", "avg_max_salary_usd"],
+                barmode="group",
+                labels={"country": "Country", "value": "Average salary (USD)", "variable": ""},
+                color_discrete_sequence=[ACCENT, ACCENT_DARK],
+            )
+            st.plotly_chart(apply_chart_theme(fig), use_container_width=True)
+    else:
+        st.info(f"Showing {selected_country} only. Switch to \"All countries\" in the sidebar to compare markets.")
 
-# ── Row 1: posting trend + top skills ────────────────────────────────────────
-left, right = st.columns(2)
-
-with left:
     st.subheader("Vacancies posted over time")
     trend_data = df_trend if selected_country == "All countries" else \
         df_trend[df_trend["country"] == selected_country]
-    fig = px.line(
+    fig = px.area(
         trend_data, x="publish_date", y="cumulative_total",
         color="country" if selected_country == "All countries" else None,
         labels={"publish_date": "Date", "cumulative_total": "Cumulative vacancies"},
+        color_discrete_sequence=[ACCENT, ACCENT_DARK],
     )
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(apply_chart_theme(fig), use_container_width=True)
 
-with right:
+# ── Tab 2: Skills & Trends ────────────────────────────────────────────────────
+with tab_skills:
     st.subheader("Most in-demand skills")
     skill_data = df_skill if selected_country == "All countries" else \
         df_skill_c[df_skill_c["country"] == selected_country].sort_values(
@@ -145,44 +205,68 @@ with right:
     fig = px.bar(
         skill_data.head(15), x="vacancy_count", y="skill_name",
         orientation="h",
-        labels={"vacancy_count": "Number of vacancies", "skill_name": "Skill"},
+        labels={"vacancy_count": "Number of vacancies", "skill_name": ""},
+        color_discrete_sequence=[ACCENT],
     )
     fig.update_layout(yaxis={"categoryorder": "total ascending"})
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(apply_chart_theme(fig), use_container_width=True)
 
-# ── Row 2: top companies + salary by category ─────────────────────────────────
-left, right = st.columns(2)
-
-with left:
-    st.subheader("Top hiring companies")
-    top_data = df_top if selected_country == "All countries" else \
-        df_top[df_top["country"] == selected_country]
-    fig = px.bar(
-        top_data.head(10), x="open_positions", y="company",
-        orientation="h",
-        labels={"open_positions": "Open positions", "company": "Company"},
-    )
-    fig.update_layout(yaxis={"categoryorder": "total ascending"})
-    st.plotly_chart(fig, use_container_width=True)
-
-with right:
     st.subheader("Average salary by category (USD)")
     sal_data = df_sal if selected_country == "All countries" else \
         df_sal[df_sal["country"] == selected_country]
     fig = px.bar(
         sal_data, x="category", y=["avg_min_usd", "avg_max_usd"],
         barmode="group",
-        labels={"category": "Category", "value": "Average salary (USD)"},
+        labels={"category": "Category", "value": "Average salary (USD)", "variable": ""},
+        color_discrete_sequence=[ACCENT, ACCENT_DARK],
     )
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(apply_chart_theme(fig), use_container_width=True)
 
-# ── Raw data table ────────────────────────────────────────────────────────────
-st.divider()
-st.subheader("Browse all vacancies")
-st.dataframe(
-    df_vac[["title", "company", "country", "location", "category",
-            "min_salary_usd", "max_salary_usd", "salary_is_predicted",
-            "publish_date", "source_url"]],
-    use_container_width=True,
-    hide_index=True,
-)
+# ── Tab 3: Companies & Salary ─────────────────────────────────────────────────
+with tab_companies:
+    st.subheader("Top hiring companies")
+    top_data = df_top if selected_country == "All countries" else \
+        df_top[df_top["country"] == selected_country]
+    fig = px.bar(
+        top_data.head(12), x="open_positions", y="company",
+        orientation="h",
+        labels={"open_positions": "Open positions", "company": ""},
+        color_discrete_sequence=[ACCENT],
+    )
+    fig.update_layout(yaxis={"categoryorder": "total ascending"})
+    st.plotly_chart(apply_chart_theme(fig), use_container_width=True)
+
+    st.subheader("Company details")
+    st.dataframe(
+        top_data[["company", "country", "open_positions", "first_posted",
+                  "last_posted", "avg_max_salary_usd"]].head(20),
+        use_container_width=True,
+        hide_index=True,
+    )
+
+# ── Tab 4: Browse Vacancies ────────────────────────────────────────────────────
+with tab_browse:
+    st.subheader("Search and browse all vacancies")
+
+    search = st.text_input("🔎 Search by title or company", "")
+    df_browse = df_vac
+    if search:
+        mask = (
+            df_browse["title"].str.contains(search, case=False, na=False)
+            | df_browse["company"].str.contains(search, case=False, na=False)
+        )
+        df_browse = df_browse[mask]
+
+    st.caption(f"Showing {len(df_browse):,} of {len(df_vac):,} vacancies")
+    st.dataframe(
+        df_browse[["title", "company", "country", "location", "category",
+                   "min_salary_usd", "max_salary_usd", "salary_is_predicted",
+                   "publish_date", "source_url"]],
+        use_container_width=True,
+        hide_index=True,
+        column_config={
+            "source_url": st.column_config.LinkColumn("Listing", display_text="Open ↗"),
+            "min_salary_usd": st.column_config.NumberColumn("Min salary (USD)", format="$%.0f"),
+            "max_salary_usd": st.column_config.NumberColumn("Max salary (USD)", format="$%.0f"),
+        },
+    )
