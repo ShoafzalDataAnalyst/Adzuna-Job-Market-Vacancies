@@ -21,6 +21,7 @@ import streamlit as st
 
 
 ASSETS_DIR = os.path.join(os.path.dirname(__file__), "assets")
+LOGO_PATH = os.path.join(ASSETS_DIR, "logo.png")
 ICON_PATH = os.path.join(ASSETS_DIR, "icon.png")
 
 favicon = ICON_PATH if os.path.exists(ICON_PATH) else "📊"
@@ -33,6 +34,13 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
+
+if os.path.exists(LOGO_PATH):
+    st.logo(LOGO_PATH, icon_image=ICON_PATH if os.path.exists(ICON_PATH) else None)
+
+# Flag-inspired colors so each country is visually recognizable at a glance.
+# Used both for direct country-by-country comparisons and, when a single
+# country is selected, as that view's overall accent color.
 COUNTRY_COLORS = {
     "United Kingdom": "#00247D",   # Union Jack blue
     "United States":  "#B22234",   # Old Glory red
@@ -104,7 +112,7 @@ def apply_chart_theme(fig: go.Figure) -> go.Figure:
 data = load_data(DB_PATH)
 
 if not data:
-    st.title("Data Analyst Vacancy Dashboard")
+    st.title("📊 Data Analyst Vacancy Dashboard")
     st.warning(
         "No database found yet. Run `python src/main.py` at least once "
         "to populate the dashboard."
