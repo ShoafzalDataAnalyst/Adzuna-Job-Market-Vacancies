@@ -27,10 +27,19 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# A small consistent accent color used across charts and cards, so the whole
-# dashboard reads as one designed thing rather than a stack of default charts.
-ACCENT = "#4F8BF9"
-ACCENT_DARK = "#2E5FCC"
+# Flag-inspired colors so each country is visually recognizable at a glance.
+# Used both for direct country-by-country comparisons and, when a single
+# country is selected, as that view's overall accent color.
+COUNTRY_COLORS = {
+    "United Kingdom": "#00247D",   # Union Jack blue
+    "United States":  "#B22234",   # Old Glory red
+}
+COUNTRY_COLORS_SECONDARY = {
+    "United Kingdom": "#CF142B",   # Union Jack red
+    "United States":  "#3C3B6E",   # Old Glory navy
+}
+DEFAULT_ACCENT = "#4F8BF9"
+DEFAULT_ACCENT_DARK = "#2E5FCC"
 
 # Light custom styling: rounded metric cards and tighter spacing. Kept minimal
 # on purpose — Streamlit's own theme already handles dark mode and layout;
@@ -134,8 +143,13 @@ with st.sidebar:
 
 if selected_country != "All countries":
     df_vac = df_vac_all[df_vac_all["country"] == selected_country]
+    # When one country is selected, theme the whole dashboard around its flag colors
+    ACCENT = COUNTRY_COLORS.get(selected_country, DEFAULT_ACCENT)
+    ACCENT_DARK = COUNTRY_COLORS_SECONDARY.get(selected_country, DEFAULT_ACCENT_DARK)
 else:
     df_vac = df_vac_all
+    ACCENT = DEFAULT_ACCENT
+    ACCENT_DARK = DEFAULT_ACCENT_DARK
 
 # ── Header ────────────────────────────────────────────────────────────────────
 st.title("Data Analyst Job Market")
@@ -168,7 +182,7 @@ with tab_overview:
             fig = px.bar(
                 df_country, x="country", y="vacancy_count",
                 labels={"country": "Country", "vacancy_count": "Open vacancies"},
-                color="country", color_discrete_sequence=[ACCENT, ACCENT_DARK],
+                color="country", color_discrete_map=COUNTRY_COLORS,
             )
             fig.update_layout(showlegend=False)
             st.plotly_chart(apply_chart_theme(fig), use_container_width=True)
@@ -178,7 +192,8 @@ with tab_overview:
                 df_country, x="country", y=["avg_min_salary_usd", "avg_max_salary_usd"],
                 barmode="group",
                 labels={"country": "Country", "value": "Average salary (USD)", "variable": ""},
-                color_discrete_sequence=[ACCENT, ACCENT_DARK],
+                color="country", color_discrete_map=COUNTRY_COLORS,
+                pattern_shape="variable", pattern_shape_sequence=["", "/"],
             )
             st.plotly_chart(apply_chart_theme(fig), use_container_width=True)
     else:
@@ -191,7 +206,8 @@ with tab_overview:
         trend_data, x="publish_date", y="cumulative_total",
         color="country" if selected_country == "All countries" else None,
         labels={"publish_date": "Date", "cumulative_total": "Cumulative vacancies"},
-        color_discrete_sequence=[ACCENT, ACCENT_DARK],
+        color_discrete_map=COUNTRY_COLORS if selected_country == "All countries" else None,
+        color_discrete_sequence=None if selected_country == "All countries" else [ACCENT],
     )
     st.plotly_chart(apply_chart_theme(fig), use_container_width=True)
 
