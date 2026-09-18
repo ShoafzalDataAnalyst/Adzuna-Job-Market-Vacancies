@@ -19,13 +19,32 @@ import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
 
+# ── Branding: logo + favicon ──────────────────────────────────────────────────
+# Drop your own image files here to use a real logo instead of the emoji
+# fallback — nothing else needs to change, both paths degrade gracefully.
+#   dashboard/assets/logo.png      → shown in the sidebar (wide logo, e.g. 200x50px)
+#   dashboard/assets/icon.png      → small square icon (e.g. 64x64px), used as the
+#                                     browser tab favicon and the collapsed-sidebar icon
+ASSETS_DIR = os.path.join(os.path.dirname(__file__), "assets")
+LOGO_PATH = os.path.join(ASSETS_DIR, "logo.png")
+ICON_PATH = os.path.join(ASSETS_DIR, "icon.png")
+
+favicon = ICON_PATH if os.path.exists(ICON_PATH) else "📊"
+
 # ── Page setup ────────────────────────────────────────────────────────────────
 st.set_page_config(
     page_title="Data Analyst Vacancy Dashboard",
-    page_icon="📊",
+    page_icon=favicon,
     layout="wide",
     initial_sidebar_state="expanded",
 )
+
+# Sidebar logo (and matching small icon shown when the sidebar is collapsed).
+# st.logo() replaces the plain "📊 Vacancy Dashboard" text header with a real
+# image if one is present; falls back to nothing here since the sidebar text
+# header below still renders regardless.
+if os.path.exists(LOGO_PATH):
+    st.logo(LOGO_PATH, icon_image=ICON_PATH if os.path.exists(ICON_PATH) else None)
 
 # Flag-inspired colors so each country is visually recognizable at a glance.
 # Used both for direct country-by-country comparisons and, when a single
@@ -120,7 +139,8 @@ last_updated = datetime.fromtimestamp(os.path.getmtime(DB_PATH), tz=timezone.utc
 
 # ── Sidebar: branding, context, and filters ───────────────────────────────────
 with st.sidebar:
-    st.markdown("## 📊 Vacancy Dashboard")
+    if not os.path.exists(LOGO_PATH):
+        st.markdown("## 📊 Vacancy Dashboard")
     st.caption("Data Analyst job market, tracked automatically.")
     st.divider()
 
