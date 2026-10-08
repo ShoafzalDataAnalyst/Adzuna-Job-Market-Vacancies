@@ -34,7 +34,7 @@ United Kingdom,Biggin Hill,1,1,62456.2378
 United Kingdom,Bilsthorpe,1,1,50425.5913
 United Kingdom,Birchills,3,2,46567.090000000004
 United Kingdom,Birmingham,25,15,57057.469324000005
-United Kingdom,Bishopsgate,1,1,76200.0
+United Kingdom,Bishopsgate,2,2,71120.0
 United Kingdom,Blackfriars,1,1,84560.7656
 United Kingdom,Blackley,2,1,22702.45015
 United Kingdom,Bodelwyddan,1,1,57603.39
@@ -91,7 +91,7 @@ United Kingdom,Cwmoody,1,1,0.0
 United Kingdom,Daisy Hill,1,1,40732.71
 United Kingdom,Darlington,2,2,78038.36945
 United Kingdom,Derby,2,2,44450.0
-United Kingdom,Deritend,2,1,48323.5
+United Kingdom,Deritend,3,1,48323.5
 United Kingdom,Devon,1,1,42111.993500000004
 United Kingdom,Dickens Heath,1,1,47548.8
 United Kingdom,Diseworth,1,1,67236.721
@@ -105,7 +105,7 @@ United Kingdom,Eastry,2,1,38100.0
 United Kingdom,Eastwick,1,1,38100.0
 United Kingdom,Eccleston,1,1,73660.0
 United Kingdom,Edinburgh,16,8,69962.47834375
-United Kingdom,Edinburgh City Centre,6,4,52847.65486666667
+United Kingdom,Edinburgh City Centre,7,4,52192.2756
 United Kingdom,Edinburgh Technopole,3,3,68189.54696666666
 United Kingdom,Ellesmere Port,1,1,41987.0001
 United Kingdom,Elstow,2,2,38608.0
@@ -144,15 +144,15 @@ United Kingdom,Higham Hill,1,1,76200.0
 United Kingdom,Higher Ferry,1,1,73950.72839999999
 United Kingdom,Hillhouse,1,1,38100.0
 United Kingdom,Hillingdon,1,1,56186.07
-United Kingdom,Histon,2,1,57150.0
-United Kingdom,Holbeck,11,7,57725.6148
+United Kingdom,Histon,3,1,57150.0
+United Kingdom,Holbeck,12,7,58735.980233333335
 United Kingdom,Holborn,3,3,65420.15956666667
 United Kingdom,Holcot,1,1,99060.0
 United Kingdom,Hook Norton,2,2,50800.0
 United Kingdom,Horsham,2,2,50869.246750000006
 United Kingdom,Hounslow,3,1,82550.0
 United Kingdom,Howden,2,2,31985.15955
-United Kingdom,Hulme,1,1,80010.0
+United Kingdom,Hulme,2,1,80010.0
 United Kingdom,Hyde Park,7,5,68411.5726
 United Kingdom,Intack,4,2,55562.5
 United Kingdom,Inverness,1,1,44450.0
@@ -165,7 +165,7 @@ United Kingdom,Kingston Upon Thames,2,2,97515.45775
 United Kingdom,Knightsbridge,5,1,56607.7227
 United Kingdom,Lathbury,1,1,69850.0
 United Kingdom,Leamington Spa,1,1,55659.020000000004
-United Kingdom,Leamouth,1,1,95250.0
+United Kingdom,Leamouth,2,1,95250.0
 United Kingdom,Leatherhead,1,1,0.0
 United Kingdom,Leavesden,1,1,46045.6661
 United Kingdom,Leeds,28,21,57574.068875
@@ -180,7 +180,7 @@ United Kingdom,London Fields,1,1,38100.0
 United Kingdom,Luton,2,2,71978.52
 United Kingdom,Magheralin,1,1,69109.8821
 United Kingdom,Manchester,45,32,60274.51637111111
-United Kingdom,Manchester Science Park,4,4,63133.792325
+United Kingdom,Manchester Science Park,5,4,62315.29828
 United Kingdom,Maney,1,1,38100.0
 United Kingdom,Marehay,1,1,52686.5469
 United Kingdom,Marston Green,1,1,45048.9066
@@ -196,7 +196,7 @@ United Kingdom,Neston,1,1,53425.3694
 United Kingdom,Nether Alderley,1,1,77470.0
 United Kingdom,New Stevenston,1,1,54237.89
 United Kingdom,New York Industrial Park,2,1,44450.0
-United Kingdom,Newcastle Upon Tyne,6,5,58018.05135
+United Kingdom,Newcastle Upon Tyne,7,6,62112.7663
 United Kingdom,Newton-Le-Willows,2,1,48909.34465
 United Kingdom,Newtown,3,2,33443.333333333336
 United Kingdom,Newtownabbey,1,1,55311.0019
@@ -264,13 +264,13 @@ United Kingdom,South Wimbledon,1,1,74930.0
 United Kingdom,Southampton,3,3,13602.152966666667
 United Kingdom,Spitalfields,4,1,53990.8242
 United Kingdom,St Pancras,1,1,64112.1654
-United Kingdom,St. Augustines,1,1,76200.0
+United Kingdom,St. Augustines,2,1,76200.0
 United Kingdom,St. Dials,1,1,43567.769100000005
 United Kingdom,St. Ives,1,1,47004.1986
 United Kingdom,St. Peters,1,1,38100.0
 United Kingdom,Stanley,1,1,26816.05
 United Kingdom,Stapleton,1,1,76200.0
-United Kingdom,Stepney,1,1,76200.0
+United Kingdom,Stepney,2,1,76200.0
 United Kingdom,Stepps,1,1,61636.3004
 United Kingdom,Stirling,1,1,38100.0
 United Kingdom,Stockport,1,1,44450.0
@@ -278,7 +278,7 @@ United Kingdom,Stoke Heath,1,1,55247.895599999996
 United Kingdom,Stoke-On-Trent,1,1,59155.33
 United Kingdom,Stoney Stratton,1,1,44450.0
 United Kingdom,Stranmillis,1,1,58677.9116
-United Kingdom,Stratford,1,1,50800.0
+United Kingdom,Stratford,2,1,50800.0
 United Kingdom,Stratford-Upon-Avon,1,1,0.0
 United Kingdom,Sunbury-On-Thames,1,1,32283.4
 United Kingdom,Surrey,1,1,54724.871499999994
@@ -286,7 +286,7 @@ United Kingdom,Sutton Coldfield,2,2,41910.0
 United Kingdom,Swansea,1,1,50800.0
 United Kingdom,Swillington Common,1,1,0.0
 United Kingdom,Swindon,2,2,65059.782250000004
-United Kingdom,Sydenham,1,1,56534.977100000004
+United Kingdom,Sydenham,2,2,60017.48855
 United Kingdom,Temple Meads,1,1,78740.0
 United Kingdom,The City,12,12,86801.14085
 United Kingdom,Thirsk,1,1,44450.0
@@ -817,7 +817,7 @@ United States,Phillips Ranch,1,1,93906.08
 United States,Phoenix,23,19,90570.5252173913
 United States,Pierpont,1,1,161435.56
 United States,Pierre,4,3,164878.315
-United States,Pimmit,12,9,93938.315
+United States,Pimmit,13,9,94239.17076923077
 United States,Pine Lake,1,1,90000.0
 United States,Pinehaven,1,1,99786.86
 United States,Pineridge,3,3,74981.0
