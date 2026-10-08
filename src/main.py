@@ -124,6 +124,10 @@ def run():
         loader.create_dashboard_views(engine)
         log.info("Dashboard views created successfully.")
 
+        # ── 6. Power BI exports ───────────────────────────────────────────────
+        loader.export_views_for_powerbi(engine)
+        log.info("Power BI CSV exports complete.")
+
     except Exception as exc:
         log.error("Database error: %s", exc)
         log.info("CSV files were still saved and can be used independently.")

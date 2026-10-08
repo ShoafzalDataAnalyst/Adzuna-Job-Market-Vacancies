@@ -38,10 +38,10 @@ jobs:
           MAX_PAGES_PER_COUNTRY: "10"
         run: python src/main.py
 
-      - name: Commit updated database
+      - name: Commit updated database and Power BI exports
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add output/*.db
+          git add output/*.db powerbi/*.csv
           git diff --cached --quiet || git commit -m "Auto-update vacancy data [skip ci]"
           git push

@@ -271,3 +271,28 @@ def create_dashboard_views(engine) -> None:
                 log.info("View created: %s", view_name)
             except Exception as exc:
                 log.error("View error (%s): %s", view_name, exc)
+
+
+# ── Power BI CSV export ─────────────────────────────────────────────────────
+# Power BI Service can only schedule an automatic refresh against a data
+# source it can reach directly over the web (no local file, no gateway
+# needed). Exporting each dashboard view as a CSV committed to the public
+# GitHub repo, then connecting Power BI's "Web" data source to the raw
+# GitHub URL, gives free, scheduled, automatic refresh with zero extra
+# infrastructure — the same SQL views that power the Streamlit dashboard.
+POWERBI_EXPORT_DIR = "powerbi"
+
+
+def export_views_for_powerbi(engine) -> None:
+    """Writes every dashboard view to its own CSV under powerbi/, for Power BI."""
+    os.makedirs(POWERBI_EXPORT_DIR, exist_ok=True)
+    for view_name in DASHBOARD_VIEWS:
+        try:
+            df = pd.read_sql(f"SELECT * FROM {view_name}", engine)
+            # Strip the "vw_" prefix for a cleaner filename Power BI users will see
+            clean_name = view_name.removeprefix("vw_")
+            path = os.path.join(POWERBI_EXPORT_DIR, f"{clean_name}.csv")
+            df.to_csv(path, index=False, encoding="utf-8-sig")
+            log.info("Power BI CSV exported: %s (%d rows)", path, len(df))
+        except Exception as exc:
+            log.error("Power BI export error (%s): %s", view_name, exc)
