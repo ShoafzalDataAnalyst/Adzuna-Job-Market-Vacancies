@@ -1,50 +1,50 @@
 ﻿country,skill_name,vacancy_count
-United Kingdom,airflow,25
+United Kingdom,airflow,26
 United Kingdom,aws,24
-United Kingdom,azure,18
+United Kingdom,azure,19
 United Kingdom,bigquery,21
 United Kingdom,dax,7
 United Kingdom,dbt,5
 United Kingdom,etl,25
-United Kingdom,excel,323
-United Kingdom,gcp,17
-United Kingdom,git,147
+United Kingdom,excel,335
+United Kingdom,gcp,18
+United Kingdom,git,148
 United Kingdom,hadoop,3
 United Kingdom,looker,21
 United Kingdom,machine learning,16
-United Kingdom,power bi,181
-United Kingdom,powerpoint,28
-United Kingdom,python,29
+United Kingdom,power bi,190
+United Kingdom,powerpoint,29
+United Kingdom,python,36
 United Kingdom,sas,25
 United Kingdom,snowflake,27
-United Kingdom,sql,293
+United Kingdom,sql,301
 United Kingdom,statistics,12
-United Kingdom,tableau,203
-United Kingdom,vba,25
+United Kingdom,tableau,211
+United Kingdom,vba,29
 United States,airflow,38
-United States,aws,49
-United States,azure,38
-United States,bigquery,51
-United States,dax,33
-United States,dbt,23
-United States,etl,43
-United States,excel,253
-United States,gcp,33
-United States,git,145
+United States,aws,52
+United States,azure,40
+United States,bigquery,52
+United States,dax,34
+United States,dbt,24
+United States,etl,44
+United States,excel,296
+United States,gcp,37
+United States,git,157
 United States,hadoop,12
-United States,looker,81
-United States,machine learning,32
+United States,looker,89
+United States,machine learning,34
 United States,nosql,4
-United States,power bi,210
+United States,power bi,228
 United States,powerpoint,63
-United States,python,58
+United States,python,66
 United States,r programming,1
 United States,redshift,5
-United States,sas,61
-United States,snowflake,59
+United States,sas,70
+United States,snowflake,61
 United States,spark,3
 United States,spss,6
-United States,sql,345
-United States,statistics,29
-United States,tableau,199
-United States,vba,42
+United States,sql,384
+United States,statistics,30
+United States,tableau,216
+United States,vba,47
