@@ -1,50 +1,50 @@
 ﻿country,skill_name,vacancy_count
-United Kingdom,airflow,26
-United Kingdom,aws,24
+United Kingdom,airflow,28
+United Kingdom,aws,25
 United Kingdom,azure,19
-United Kingdom,bigquery,21
+United Kingdom,bigquery,22
 United Kingdom,dax,7
 United Kingdom,dbt,5
 United Kingdom,etl,25
-United Kingdom,excel,335
+United Kingdom,excel,341
 United Kingdom,gcp,18
 United Kingdom,git,148
 United Kingdom,hadoop,3
-United Kingdom,looker,21
+United Kingdom,looker,23
 United Kingdom,machine learning,16
-United Kingdom,power bi,190
-United Kingdom,powerpoint,29
-United Kingdom,python,36
-United Kingdom,sas,25
+United Kingdom,power bi,201
+United Kingdom,powerpoint,30
+United Kingdom,python,63
+United Kingdom,sas,89
 United Kingdom,snowflake,27
-United Kingdom,sql,301
+United Kingdom,sql,302
 United Kingdom,statistics,12
-United Kingdom,tableau,211
+United Kingdom,tableau,213
 United Kingdom,vba,29
-United States,airflow,38
+United States,airflow,40
 United States,aws,52
-United States,azure,40
-United States,bigquery,52
-United States,dax,34
-United States,dbt,24
-United States,etl,44
-United States,excel,296
+United States,azure,41
+United States,bigquery,53
+United States,dax,36
+United States,dbt,25
+United States,etl,46
+United States,excel,304
 United States,gcp,37
-United States,git,157
-United States,hadoop,12
+United States,git,169
+United States,hadoop,14
 United States,looker,89
-United States,machine learning,34
+United States,machine learning,39
 United States,nosql,4
-United States,power bi,228
-United States,powerpoint,63
-United States,python,66
+United States,power bi,255
+United States,powerpoint,67
+United States,python,85
 United States,r programming,1
 United States,redshift,5
-United States,sas,70
-United States,snowflake,61
+United States,sas,101
+United States,snowflake,67
 United States,spark,3
-United States,spss,6
-United States,sql,384
-United States,statistics,30
-United States,tableau,216
-United States,vba,47
+United States,spss,7
+United States,sql,401
+United States,statistics,34
+United States,tableau,228
+United States,vba,53
