@@ -27,13 +27,57 @@ log = logging.getLogger(__name__)
 # Adzuna doesn't tag structured skills like HeadHunter did, so we detect
 # mentions of common data-analyst-relevant tools/skills directly from the
 # job title and description text. This list can be extended over time.
-SKILL_KEYWORDS = [
-    "sql", "python", "r programming", "excel", "power bi", "tableau",
-    "looker", "dax", "vba", "sas", "spss", "aws", "azure", "gcp",
-    "snowflake", "spark", "hadoop", "airflow", "dbt", "etl",
-    "machine learning", "statistics", "powerpoint", "git", "javascript",
-    "mongodb", "nosql", "postgresql", "mysql", "bigquery", "redshift",
-]
+#
+# Each skill maps to the spellings that count as a mention of it. Matching
+# uses word boundaries, so "excel" does not fire inside "excellent", "git"
+# inside "digital", "sas" inside "Kansas", or "aws" inside "laws".
+SKILL_KEYWORDS = {
+    "sql":              ["sql"],
+    "python":           ["python"],
+    "r programming":    ["r programming", "rstudio", "r studio"],
+    "excel":            ["excel"],
+    "power bi":         ["power bi", "powerbi", "power-bi"],
+    "tableau":          ["tableau"],
+    "looker":           ["looker"],
+    "dax":              ["dax"],
+    "vba":              ["vba"],
+    "sas":              ["sas"],
+    "spss":             ["spss"],
+    "aws":              ["aws", "amazon web services"],
+    "azure":            ["azure"],
+    "gcp":              ["gcp", "google cloud"],
+    "snowflake":        ["snowflake"],
+    "spark":            ["apache spark", "pyspark"],
+    "hadoop":           ["hadoop"],
+    "airflow":          ["airflow"],
+    "dbt":              ["dbt"],
+    "etl":              ["etl"],
+    "machine learning": ["machine learning"],
+    "statistics":       ["statistics", "statistical"],
+    "powerpoint":       ["powerpoint"],
+    "git":              ["git", "github", "gitlab"],
+    "javascript":       ["javascript"],
+    "mongodb":          ["mongodb"],
+    "nosql":            ["nosql"],
+    "postgresql":       ["postgresql", "postgres"],
+    "mysql":            ["mysql"],
+    "bigquery":         ["bigquery"],
+    "redshift":         ["redshift"],
+}
+
+# "excel" is also an everyday verb ("excel in a fast-paced environment"), so
+# a mention followed by "in" or "at" is not counted as the spreadsheet tool.
+_SKILL_TAILS = {"excel": r"(?!\s+(?:in|at)\b)"}
+
+
+def _compile_skill_pattern(skill: str, aliases: list[str]) -> re.Pattern:
+    """Builds one regex per skill that only matches whole words/phrases."""
+    body = "|".join(re.escape(a) for a in aliases)
+    return re.compile(rf"(?<![a-z0-9])(?:{body})(?![a-z0-9]){_SKILL_TAILS.get(skill, '')}")
+
+
+# Compiled once at import time, not once per vacancy.
+_SKILL_PATTERNS = {s: _compile_skill_pattern(s, a) for s, a in SKILL_KEYWORDS.items()}
 
 
 # ── Helper functions ──────────────────────────────────────────────────────────
@@ -46,9 +90,18 @@ def clean_text(value) -> Optional[str]:
 
 
 def extract_skills(title: str, description: str) -> list[str]:
-    """Scans title + description text for known skill keywords."""
+    """Scans title + description text for known skills (whole-word matches only)."""
     haystack = f"{title or ''} {description or ''}".lower()
-    return [kw for kw in SKILL_KEYWORDS if kw in haystack]
+    return [skill for skill, pattern in _SKILL_PATTERNS.items() if pattern.search(haystack)]
+
+
+def parse_flag(value) -> bool:
+    """
+    Normalises a 0/1 flag that an API may send as a number (1) or as text ("1").
+    Plain bool("0") is True in Python because any non-empty string is truthy,
+    which would silently mark every row as True.
+    """
+    return str(value).strip().lower() in ("1", "true")
 
 
 def split_location(area: list) -> tuple[str, str]:
@@ -142,7 +195,7 @@ def parse_vacancy(job: dict, store: NormalizationStore) -> tuple[dict, list[dict
     min_sal  = job.get("salary_min")
     max_sal  = job.get("salary_max")
     currency = config.COUNTRY_CURRENCY.get(country_code, "USD")
-    is_predicted = bool(job.get("salary_is_predicted", 0))
+    is_predicted = parse_flag(job.get("salary_is_predicted", 0))
 
     # ── Skills (keyword-extracted, since Adzuna has no structured field) ──────
     raw_skills = extract_skills(title, description)

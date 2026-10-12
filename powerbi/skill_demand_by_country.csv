@@ -1,50 +1,54 @@
 ﻿country,skill_name,vacancy_count
-United Kingdom,airflow,25
-United Kingdom,aws,21
-United Kingdom,azure,17
-United Kingdom,bigquery,21
-United Kingdom,dax,7
-United Kingdom,dbt,5
-United Kingdom,etl,23
-United Kingdom,excel,319
-United Kingdom,gcp,17
-United Kingdom,git,142
-United Kingdom,hadoop,3
-United Kingdom,looker,21
-United Kingdom,machine learning,16
-United Kingdom,power bi,179
-United Kingdom,powerpoint,25
-United Kingdom,python,29
-United Kingdom,sas,23
-United Kingdom,snowflake,27
-United Kingdom,sql,287
-United Kingdom,statistics,12
-United Kingdom,tableau,191
-United Kingdom,vba,24
-United States,airflow,38
-United States,aws,45
-United States,azure,38
-United States,bigquery,51
-United States,dax,32
-United States,dbt,23
-United States,etl,43
-United States,excel,253
-United States,gcp,33
-United States,git,145
-United States,hadoop,12
-United States,looker,81
-United States,machine learning,22
-United States,nosql,4
-United States,power bi,210
-United States,powerpoint,63
-United States,python,58
-United States,r programming,1
-United States,redshift,5
-United States,sas,61
-United States,snowflake,59
-United States,spark,3
-United States,spss,6
-United States,sql,345
-United States,statistics,26
-United States,tableau,199
-United States,vba,42
+United Kingdom,airflow,2
+United Kingdom,aws,27
+United Kingdom,azure,36
+United Kingdom,bigquery,2
+United Kingdom,dax,4
+United Kingdom,dbt,4
+United Kingdom,etl,22
+United Kingdom,excel,32
+United Kingdom,gcp,5
+United Kingdom,git,2
+United Kingdom,hadoop,2
+United Kingdom,javascript,1
+United Kingdom,looker,1
+United Kingdom,machine learning,31
+United Kingdom,mongodb,1
+United Kingdom,mysql,1
+United Kingdom,postgresql,1
+United Kingdom,power bi,71
+United Kingdom,python,55
+United Kingdom,r programming,1
+United Kingdom,sas,3
+United Kingdom,snowflake,16
+United Kingdom,spark,11
+United Kingdom,sql,89
+United Kingdom,statistics,15
+United Kingdom,tableau,11
+United Kingdom,vba,6
+United States,aws,15
+United States,azure,14
+United States,bigquery,4
+United States,dax,2
+United States,dbt,6
+United States,etl,45
+United States,excel,67
+United States,gcp,2
+United States,git,3
+United States,hadoop,2
+United States,looker,5
+United States,machine learning,26
+United States,mongodb,1
+United States,nosql,1
+United States,postgresql,2
+United States,power bi,94
+United States,powerpoint,5
+United States,python,73
+United States,redshift,1
+United States,sas,2
+United States,snowflake,29
+United States,spark,5
+United States,sql,167
+United States,statistics,110
+United States,tableau,42
+United States,vba,3
