@@ -26,16 +26,17 @@ United Kingdom,sql,89
 United Kingdom,statistics,15
 United Kingdom,tableau,11
 United Kingdom,vba,6
-United States,aws,15
+United States,aws,17
 United States,azure,14
 United States,bigquery,4
 United States,dax,2
 United States,dbt,6
 United States,etl,45
 United States,excel,67
-United States,gcp,2
+United States,gcp,3
 United States,git,3
 United States,hadoop,2
+United States,javascript,3
 United States,looker,5
 United States,machine learning,26
 United States,mongodb,1
@@ -44,10 +45,11 @@ United States,postgresql,2
 United States,power bi,94
 United States,powerpoint,5
 United States,python,73
+United States,r programming,2
 United States,redshift,1
 United States,sas,2
 United States,snowflake,29
-United States,spark,5
+United States,spark,6
 United States,sql,167
 United States,statistics,110
 United States,tableau,42
