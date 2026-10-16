@@ -25,7 +25,7 @@ United Kingdom,Batley Carr,1,1,36057.840000000004
 United Kingdom,Bebside,1,1,40961.31
 United Kingdom,Beddington,2,2,31750.0
 United Kingdom,Bedfordshire,1,1,44450.0
-United Kingdom,Belfast,24,17,66884.9183
+United Kingdom,Belfast,25,18,65987.521568
 United Kingdom,Belgrave,1,1,52270.3044
 United Kingdom,Bellshill,1,1,55990.909100000004
 United Kingdom,Belmont,1,1,38100.0
@@ -151,9 +151,9 @@ United Kingdom,Finsbury,1,1,47943.744600000005
 United Kingdom,Four Ashes,1,1,35564.749800000005
 United Kingdom,Fulwood,2,2,43894.635350000004
 United Kingdom,Garden Village,1,1,43944.54
-United Kingdom,Gateshead,3,3,80433.33333333333
+United Kingdom,Gateshead,4,4,69215.0
 United Kingdom,Gaunts Earthcott,1,1,88634.57
-United Kingdom,Glasgow,15,10,63193.90629333334
+United Kingdom,Glasgow,17,10,63695.934105882356
 United Kingdom,Glasgow City Centre,1,1,231140.0
 United Kingdom,Gloucester,3,2,69620.57873333333
 United Kingdom,Gloucestershire,1,1,63500.0
@@ -210,6 +210,7 @@ United Kingdom,Kingfisher Shopping Centre,2,1,58460.297099999996
 United Kingdom,Kings Cross,3,1,66556.88153333333
 United Kingdom,Kings Hill,2,2,42705.1343
 United Kingdom,Kingston Upon Thames,2,2,173520.1
+United Kingdom,Knightsbridge,1,1,68679.7839
 United Kingdom,Knowsley,1,1,132080.0
 United Kingdom,Knowsley Park,1,1,64737.8055
 United Kingdom,Lancashire,1,1,57150.0
@@ -223,12 +224,13 @@ United Kingdom,Leicester,8,3,60879.231175
 United Kingdom,Lenton,1,1,44450.0
 United Kingdom,Lisburn,1,1,63500.0
 United Kingdom,Little Laver,1,1,50839.217599999996
+United Kingdom,Littlemore,2,2,40732.71
 United Kingdom,Liverpool,11,9,84579.01088181819
 United Kingdom,Liverpool Street,1,1,73726.8782
 United Kingdom,Llandavenny,1,1,42555.4394
 United Kingdom,Llanfabon,1,1,21132.8
 United Kingdom,Lobley Hill,1,1,64785.24
-United Kingdom,London,587,322,81298.38559744463
+United Kingdom,London,590,323,81439.00976881356
 United Kingdom,London Fields,1,1,38100.0
 United Kingdom,Lostock Hall,1,1,34328.1
 United Kingdom,Luton,2,2,71978.52
@@ -267,7 +269,7 @@ United Kingdom,North West England,3,3,61383.333333333336
 United Kingdom,North West London,2,2,76200.0
 United Kingdom,Northampton,1,1,57150.0
 United Kingdom,Northwich,2,2,50386.583249999996
-United Kingdom,Norton,1,1,39090.8286
+United Kingdom,Norton,2,2,35903.0143
 United Kingdom,Norwich,2,2,62522.56355
 United Kingdom,Nottingham,3,3,54066.38073333333
 United Kingdom,Nuneaton,1,1,50800.0
@@ -275,7 +277,7 @@ United Kingdom,Oakengates,2,2,75793.6
 United Kingdom,Ocean Village,3,3,96377.71343333332
 United Kingdom,Oldbury,2,1,41166.34515
 United Kingdom,Orbiston,1,1,49550.5486
-United Kingdom,Ormeau,1,1,60312.0587
+United Kingdom,Ormeau,2,1,64969.37095
 United Kingdom,Ottershaw,1,1,49530.0
 United Kingdom,Oxford,5,5,64179.05376
 United Kingdom,Oxford Circus,4,4,71757.1463
@@ -302,10 +304,11 @@ United Kingdom,Riccarton,1,1,101600.0
 United Kingdom,Richmond,1,1,67807.3066
 United Kingdom,Risley,2,1,70301.71995
 United Kingdom,Roath,1,1,61779.6707
+United Kingdom,Ronaldsway Airport,1,1,50800.0
 United Kingdom,Rotherham,2,1,50800.0
 United Kingdom,Rownhams,1,1,73060.56
 United Kingdom,Rudheath,1,1,0.0
-United Kingdom,Rusholme,9,8,65622.06981111111
+United Kingdom,Rusholme,10,9,64139.86283
 United Kingdom,Salford,2,2,72750.95305
 United Kingdom,Sandwich,2,2,43242.5729
 United Kingdom,Sefton Park,1,1,93243.33649999999
@@ -341,7 +344,7 @@ United Kingdom,St. Helens,1,1,96256.7798
 United Kingdom,St. Johns,1,1,61843.92
 United Kingdom,St. Mildreds,1,1,37784.532
 United Kingdom,St. Peters,1,1,38100.0
-United Kingdom,Stanley,3,3,82973.33333333333
+United Kingdom,Stanley,4,3,70421.5
 United Kingdom,Stepney,1,1,76200.0
 United Kingdom,Stepps,1,1,61636.3004
 United Kingdom,Stevenage,1,1,69984.1628
@@ -353,8 +356,10 @@ United Kingdom,Stratford,5,4,36236.57218
 United Kingdom,Stratford-Upon-Avon,3,3,49841.20079999999
 United Kingdom,Strood,1,1,44280.2518
 United Kingdom,Suffolk,1,1,32226.25
+United Kingdom,Sunderland,1,1,35560.0
 United Kingdom,Surrey,7,4,40105.27375714285
 United Kingdom,Swansea,1,1,50800.0
+United Kingdom,Swillington Common,1,1,0.0
 United Kingdom,Sydenham,2,2,32051.625
 United Kingdom,Tamworth,1,1,82550.0
 United Kingdom,Tannochside Park,1,1,31750.0
@@ -370,7 +375,7 @@ United Kingdom,Tower Bridge,1,1,109303.566
 United Kingdom,Trafford Park,1,1,98864.9407
 United Kingdom,Tram Inn,1,1,47705.01
 United Kingdom,Tyne & Wear,1,1,88900.0
-United Kingdom,UK,317,189,63820.970705678235
+United Kingdom,UK,325,191,63149.11853846153
 United Kingdom,Uphampton,1,1,63500.0
 United Kingdom,Venn,1,1,57150.0
 United Kingdom,Victoria,6,3,70617.81236666667
