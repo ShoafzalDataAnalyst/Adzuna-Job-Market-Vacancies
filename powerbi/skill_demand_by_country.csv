@@ -5,7 +5,7 @@ United Kingdom,azure,70
 United Kingdom,bigquery,2
 United Kingdom,dax,7
 United Kingdom,dbt,20
-United Kingdom,etl,80
+United Kingdom,etl,82
 United Kingdom,excel,40
 United Kingdom,gcp,5
 United Kingdom,git,2
@@ -17,7 +17,7 @@ United Kingdom,mongodb,1
 United Kingdom,mysql,16
 United Kingdom,postgresql,1
 United Kingdom,power bi,90
-United Kingdom,python,91
+United Kingdom,python,92
 United Kingdom,r programming,1
 United Kingdom,sas,3
 United Kingdom,snowflake,23
@@ -28,31 +28,31 @@ United Kingdom,tableau,51
 United Kingdom,vba,9
 United States,airflow,2
 United States,aws,28
-United States,azure,107
+United States,azure,111
 United States,bigquery,4
-United States,dax,11
-United States,dbt,44
-United States,etl,166
-United States,excel,78
+United States,dax,12
+United States,dbt,93
+United States,etl,172
+United States,excel,79
 United States,gcp,6
 United States,git,3
 United States,hadoop,2
 United States,javascript,6
 United States,looker,5
-United States,machine learning,36
+United States,machine learning,38
 United States,mongodb,2
-United States,mysql,48
+United States,mysql,49
 United States,nosql,1
 United States,postgresql,2
-United States,power bi,131
+United States,power bi,136
 United States,powerpoint,5
-United States,python,141
+United States,python,142
 United States,r programming,8
 United States,redshift,1
-United States,sas,8
-United States,snowflake,51
+United States,sas,12
+United States,snowflake,52
 United States,spark,19
-United States,sql,260
+United States,sql,269
 United States,statistics,130
-United States,tableau,110
-United States,vba,27
+United States,tableau,112
+United States,vba,28
