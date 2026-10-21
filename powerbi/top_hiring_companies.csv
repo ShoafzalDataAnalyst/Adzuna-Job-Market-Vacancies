@@ -12,7 +12,7 @@
 A. O. Smith Corporation,United States,1,2026-10-12,2026-10-12,82556.77
 A.M. Best Europe - Rating Services Ltd,United Kingdom,1,2026-10-06,2026-10-06,62950.7123
 A.O. Smith,United States,1,2026-10-11,2026-10-11,133225.31
-AARATECH,United States,11,2026-10-09,2026-10-18,87860.82636363636
+AARATECH,United States,13,2026-10-09,2026-10-20,88100.60384615386
 "ABCO Automation, Inc.",United States,1,2026-10-09,2026-10-09,87192.41
 ABM UK,United Kingdom,1,2026-09-29,2026-09-29,51070.9672
 ABP UK,United Kingdom,1,2026-09-30,2026-09-30,45048.9066
@@ -31,7 +31,7 @@ AJAIA,United States,1,2026-10-06,2026-10-06,71408.09
 ALENOTECH SOLUTIONS LLC,United States,3,2026-10-06,2026-10-12,81610.51
 ALLERAIT SOLUTIONS LLC,United States,1,2026-10-07,2026-10-07,126329.25
 ALS Global,United Kingdom,1,2026-09-20,2026-09-20,37175.44
-ALTEN,United Kingdom,1,2026-10-05,2026-10-05,56247.372899999995
+ALTEN,United Kingdom,2,2026-10-05,2026-10-21,54067.15755
 AM Best,United Kingdom,1,2026-08-27,2026-08-27,59593.0863
 AMD,United States,1,2026-09-19,2026-09-19,55311.93
 AMS Corporation,United States,2,2026-10-07,2026-10-12,55131.065
@@ -113,7 +113,7 @@ Akaasa Technologies,United States,3,2026-10-12,2026-10-12,109737.74666666666
 Akima,United States,1,2026-05-25,2026-05-25,113885.2
 "Akima, LLC",United States,3,2026-08-14,2026-10-09,109908.04
 Akkodis,United Kingdom,3,2026-10-02,2026-10-08,124243.77403333333
-Akkodis,United States,3,2026-10-11,2026-10-17,96436.72000000002
+Akkodis,United States,4,2026-10-11,2026-10-20,92938.9975
 Akytech Consulting LLC,United States,2,2026-10-06,2026-10-14,94091.48
 "Alakaʻi Services and Poe'hana Group, Inc.",United States,2,2026-10-06,2026-10-07,59764.67
 Alfred H Knight Group,United Kingdom,1,2026-09-20,2026-09-20,64737.8055
@@ -134,6 +134,7 @@ Amazon,United Kingdom,11,2026-06-18,2026-10-09,87211.35142727272
 Amazon,United States,2,2026-08-30,2026-09-18,157977.53000000003
 Amazon Online UK Limited,United Kingdom,1,2026-09-17,2026-09-17,72055.32960000001
 Amazon UK Services Ltd.,United Kingdom,1,2026-10-07,2026-10-07,87672.4815
+Amazon.com Services LLC - A57,United States,1,2026-10-20,2026-10-20,67016.16
 Amentum,United States,4,2026-04-16,2026-09-22,97876.6475
 American Express,United Kingdom,8,2026-09-15,2026-09-23,81404.215525
 "American Unit, Inc",United States,1,2026-10-11,2026-10-11,86604.27
@@ -174,6 +175,7 @@ Arizona 811,United States,2,2026-10-06,2026-10-07,68020.53
 Arizona Central Credit Union,United States,1,2026-10-06,2026-10-06,64153.66
 Arnold Porter,United States,1,2026-09-16,2026-09-16,110000.0
 Arrowmac,United States,1,2026-10-06,2026-10-06,37962.08
+Arrowminds inc,United States,1,2026-10-19,2026-10-19,106303.84
 Artemis Incorporated,United States,1,2026-08-25,2026-08-25,76275.02
 Arthur Lawrence,United States,1,2026-10-14,2026-10-14,74149.07
 Ascend Staffing,United States,3,2026-10-12,2026-10-12,43458.41333333333
@@ -279,11 +281,11 @@ Blue and Company,United States,2,2026-10-06,2026-10-06,98844.39
 BlueForce Inc.,United States,3,2026-09-03,2026-09-04,218012.86
 BluetownOnline Ltd,United Kingdom,2,2026-09-03,2026-09-30,64887.360700000005
 Bob Jones University,United States,1,2026-10-06,2026-10-06,58770.69
-Boeing,United Kingdom,1,2026-10-02,2026-10-02,53051.9386
+Boeing,United Kingdom,2,2026-10-02,2026-10-21,59845.22575
 Bonhill Partners,United Kingdom,1,2026-09-11,2026-09-11,85650.7685
 Booth Welsh Ltd,United Kingdom,1,2026-10-12,2026-10-12,79328.0227
 Booz Allen Hamilton,United Kingdom,1,2026-09-26,2026-09-26,285750.0
-Booz Allen Hamilton,United States,30,2026-07-14,2026-10-17,106624.86833333333
+Booz Allen Hamilton,United States,31,2026-07-14,2026-10-20,106216.95451612903
 Boston Medical Center,United States,1,2026-10-12,2026-10-12,73745.2
 Boston Scientific,United States,3,2026-10-12,2026-10-12,150204.69666666668
 Boston University,United States,5,2026-10-06,2026-10-12,64121.898
@@ -294,7 +296,7 @@ Brakes Group,United Kingdom,1,2023-05-11,2023-05-11,55139.9964
 Branch 57,United States,1,2026-10-07,2026-10-07,42526.26
 Bridge Energy,United States,1,2025-12-04,2025-12-04,107412.89
 Bright Purple,United Kingdom,2,2026-09-17,2026-10-08,138401.19640000002
-Bright Purple Resourcing,United Kingdom,1,2026-09-17,2026-09-17,165666.42
+Bright Purple Resourcing,United Kingdom,2,2026-09-17,2026-10-20,111408.21
 "Brighton Health Plan Solutions, LLC",United States,1,2026-10-07,2026-10-07,145538.1
 Brightspeed,United States,1,2026-10-12,2026-10-12,111704.84
 Brinks,United Kingdom,1,2026-05-20,2026-05-20,40603.208099999996
@@ -330,6 +332,7 @@ CCS Global Tech,United States,1,2026-10-09,2026-10-09,89443.59
 CDP Global,United Kingdom,1,2026-07-22,2026-07-22,49986.1967
 CDW,United Kingdom,1,2026-09-30,2026-09-30,73915.7653
 CERNER TECHNOLOGIES LLC,United States,1,2026-10-16,2026-10-16,59370.02
+CF Industries,United States,1,2026-10-21,2026-10-21,140000.0
 CFC,United Kingdom,1,2026-09-30,2026-09-30,73726.8782
 CGI,United Kingdom,4,2026-09-13,2026-10-09,80584.27495
 CGI,United States,1,2026-10-03,2026-10-03,84476.99
@@ -384,6 +387,7 @@ Careerwise UK,United Kingdom,5,2026-07-16,2026-09-13,102997.0
 "Caribou Thunder, LLC",United States,1,2026-08-27,2026-08-27,241791.05
 Carmoola,United Kingdom,1,2026-08-26,2026-08-26,88900.0
 Carnival Corporation,United Kingdom,1,2026-10-11,2026-10-11,52913.1403
+Carrington West,United Kingdom,1,2026-10-20,2026-10-20,79248.0
 "Castellum, Inc.",United States,1,2026-09-11,2026-09-11,131874.77
 Castle View Personnel,United Kingdom,2,2026-09-29,2026-10-01,57150.0
 Castleton Commodities International,United Kingdom,1,2026-10-06,2026-10-06,66961.3723
@@ -441,17 +445,19 @@ City of Philadelphia,United States,2,2026-10-06,2026-10-07,85028.95999999999
 City of Wolverhampton Council,United Kingdom,1,2026-10-13,2026-10-13,51786.79
 Civic Recruitment Limited,United Kingdom,6,2026-09-15,2026-10-08,68276.99705
 Claranet Limited,United Kingdom,1,2026-09-22,2026-09-22,71200.3783
+ClearBalance Healthcare,United States,1,2026-10-15,2026-10-15,49468.7
 ClearOne Advantage,United States,1,2026-10-06,2026-10-06,60168.07
 ClearScore,United Kingdom,1,2026-08-29,2026-08-29,80779.0739
 Clearwater Analytics,United Kingdom,2,2026-08-08,2026-09-23,60239.61155
 Click Digital,United Kingdom,3,2026-10-06,2026-10-08,81280.0
 Client First Technologies,United States,1,2026-10-06,2026-10-06,77350.89
 Climate First Bank,United States,1,2026-10-12,2026-10-12,80825.81
-Clinisoltech,United States,2,2026-10-16,2026-10-18,92376.375
+Clinisoltech,United States,3,2026-10-16,2026-10-20,96277.73333333334
 Close Brothers Group,United Kingdom,1,2026-09-30,2026-09-30,70073.8629
 CloserStill Media,United Kingdom,1,2026-09-15,2026-09-15,47127.947400000005
 Club L London,United Kingdom,1,2026-08-26,2026-08-26,98864.9407
 Cluttons,United Kingdom,1,2026-07-30,2026-07-30,63169.8
+Co-op Insurance,United Kingdom,1,2026-10-21,2026-10-21,63500.0
 Coda Search│Staffing,United States,1,2026-10-06,2026-10-06,75466.16
 Code First Girls,United Kingdom,1,2026-09-19,2026-09-19,66269.5398
 Cognitive Credit,United Kingdom,2,2026-09-16,2026-10-09,56069.439549999996
@@ -513,6 +519,7 @@ Cox-Little & Company,United States,1,2026-10-07,2026-10-07,98461.16
 Creideas,United Kingdom,3,2026-08-14,2026-09-10,33443.333333333336
 Crestlink solutions,United States,1,2026-10-06,2026-10-06,69727.79
 Criteo,United States,4,2026-10-13,2026-10-14,175535.3825
+Critical Path Advisors,United States,1,2026-10-20,2026-10-20,74580.41
 CrowdStrike,United Kingdom,1,2026-10-11,2026-10-11,71038.212
 Crown Agents Bank,United Kingdom,1,2026-09-23,2026-09-23,77967.4082
 Crusoe,United States,2,2026-10-12,2026-10-12,153538.51
@@ -718,7 +725,7 @@ Falconx,United States,2,2026-10-06,2026-10-07,113254.135
 FanDuel,United Kingdom,2,2026-08-12,2026-08-12,76956.21515
 FanDuel,United States,1,2026-07-13,2026-07-13,172566.1
 Fanatics Betting & Gaming,United Kingdom,2,2026-09-25,2026-09-30,79700.4629
-FedEx Office,United States,2,2026-10-09,2026-10-18,81337.955
+FedEx Office,United States,3,2026-10-09,2026-10-20,78903.83333333333
 Federal Signal Corporation,United States,1,2026-10-07,2026-10-07,76649.53
 Ferraro Law,United States,2,2026-10-06,2026-10-14,89650.92
 Feuji Inc,United States,1,2026-10-08,2026-10-08,73209.35
@@ -755,7 +762,7 @@ G MASS,United Kingdom,3,2026-06-25,2026-07-30,110530.37753333333
 G-Research,United Kingdom,4,2026-05-16,2026-10-01,93579.30865
 GBC INTERNATIONAL BANK,United States,1,2026-10-06,2026-10-06,57760.02
 GCS,United Kingdom,2,2026-09-23,2026-10-01,181610.0
-GCS Associates,United Kingdom,2,2026-10-19,2026-10-19,57150.0
+GCS Associates,United Kingdom,3,2026-10-19,2026-10-20,57150.0
 GDR Defense,United States,2,2026-10-12,2026-10-12,65614.85500000001
 GEDU Global Education,United Kingdom,1,2026-09-17,2026-09-17,54610.0
 GIC Private Limited,United Kingdom,1,2026-10-05,2026-10-05,89824.7759
@@ -827,7 +834,7 @@ HSL Compliance Limited,United Kingdom,1,2026-09-17,2026-09-17,35564.749800000005
 HSL Compliance Ltd,United Kingdom,1,2026-09-28,2026-09-28,33020.0
 HTH Communications,United States,1,2026-10-12,2026-10-12,59130.38
 HULL COLLEGE GROUP,United Kingdom,1,2026-10-14,2026-10-14,43944.54
-Hackajob Ltd,United Kingdom,34,2026-09-22,2026-10-08,83232.22420294117
+Hackajob Ltd,United Kingdom,36,2026-09-22,2026-10-21,82810.69925
 Halfords,United Kingdom,2,2026-10-01,2026-10-05,58460.297099999996
 Halfords Careers,United Kingdom,2,2026-09-19,2026-10-07,61239.0444
 Halian Technology Limited,United Kingdom,1,2026-10-02,2026-10-02,90164.4755
@@ -920,7 +927,7 @@ IRIS,United Kingdom,3,2026-08-09,2026-08-09,41035.20283333334
 ISLAND PEER REVIEW ORGANIZATION INC,United States,2,2026-10-07,2026-10-07,115626.11
 ISS STOXX,United Kingdom,1,2026-07-12,2026-07-12,89710.8315
 IT & Data,United Kingdom,1,2026-09-30,2026-09-30,69850.0
-IT Online Learning,United Kingdom,31,2026-10-07,2026-10-13,82550.0
+IT Online Learning,United Kingdom,32,2026-10-07,2026-10-14,82550.0
 IT Talent Solutions,United Kingdom,2,2026-09-09,2026-10-08,82550.0
 "IT, Data Science",United States,3,2026-10-06,2026-10-12,167819.79333333333
 "ITMC Systems, Inc",United States,2,2026-10-18,2026-10-18,93840.235
@@ -1037,7 +1044,7 @@ Kelly Services,United States,4,2026-09-16,2026-10-10,85892.0475
 Kewadin Casinos,United States,1,2026-10-06,2026-10-06,57438.13
 Keyloop,United Kingdom,2,2026-10-03,2026-10-03,75302.40845
 Kforce Federal Solutions,United States,2,2026-06-17,2026-07-21,92055.6
-Kforce Technology Staffing,United States,14,2026-09-28,2026-10-16,117449.58499999999
+Kforce Technology Staffing,United States,15,2026-09-28,2026-10-19,116001.39933333333
 Kier Group,United Kingdom,1,2026-10-14,2026-10-14,59898.432400000005
 Kindeva,United Kingdom,1,2026-08-28,2026-08-28,49123.5492
 Kingdom People,United Kingdom,3,2026-09-17,2026-09-18,51656.22976666666
@@ -1096,7 +1103,7 @@ Livestock Information,United Kingdom,1,2026-07-08,2026-07-08,50800.0
 Livingston International,United States,1,2026-10-12,2026-10-12,76940.06
 Lockheed Martin,United States,5,2026-09-04,2026-10-10,151704.91400000002
 Loewertus AG,United Kingdom,1,2026-09-26,2026-09-26,152400.0
-London Borough of Ealing,United Kingdom,1,2026-10-13,2026-10-13,723.9
+London Borough of Ealing,United Kingdom,2,2026-10-13,2026-10-20,398.78
 London Borough of Richmond upon Thames and London Borough of Wandsworth,United Kingdom,1,2026-10-16,2026-10-16,76198.73
 London Health Sciences Centre,United Kingdom,2,2026-10-14,2026-10-17,4094.48
 London Stock Exchange Group,United Kingdom,2,2026-08-27,2026-08-28,65093.5071
@@ -1112,6 +1119,8 @@ Lorven technologies,United States,1,2026-10-12,2026-10-12,64836.45
 Lottie,United Kingdom,1,2026-10-09,2026-10-09,101600.0
 Lottie Organisation Ltd,United Kingdom,2,2026-10-11,2026-10-14,3723.005
 Louisiana Primary Care Association,United States,1,2026-10-07,2026-10-07,62013.52
+Lowell,United Kingdom,2,2026-10-20,2026-10-21,54855.4783
+Lowell Group,United Kingdom,2,2026-10-20,2026-10-20,55346.11105000001
 Lucayan Technology Solutions LLC,United States,1,2026-05-25,2026-05-25,144463.9
 Lumen Partners,United Kingdom,1,2026-10-14,2026-10-14,43172.38
 Luxoft,United States,2,2026-10-06,2026-10-06,92717.75
@@ -1171,7 +1180,7 @@ Markon,United States,1,2026-08-26,2026-08-26,107555.98
 Marks Sattin,United Kingdom,1,2026-09-24,2026-09-24,181610.0
 Mars,United Kingdom,2,2026-10-07,2026-10-08,47734.02314999999
 Marsh McLennan,United Kingdom,1,2026-09-07,2026-09-07,60313.722400000006
-Marshall Wolfe,United Kingdom,1,2026-10-07,2026-10-07,101600.0
+Marshall Wolfe,United Kingdom,2,2026-10-07,2026-10-20,101600.0
 Marshall Wolfe Ltd,United Kingdom,2,2026-10-07,2026-10-16,88900.0
 Martin Veasey Talent Solutions,United Kingdom,1,2026-10-02,2026-10-02,127000.0
 Masai Technologies Corporation,United States,2,2026-10-06,2026-10-06,103521.265
@@ -1196,14 +1205,15 @@ McCain Foods Ltd,United Kingdom,1,2026-10-16,2026-10-16,54892.3464
 McLaughlin & Harvey,United Kingdom,3,2026-10-08,2026-10-09,59845.59616666666
 Me+Em,United Kingdom,1,2026-10-03,2026-10-03,38737.9718
 Medica Services Company LLC,United States,1,2026-10-12,2026-10-12,71296.77
-Medical City Healthcare,United States,42,2026-10-17,2026-10-19,114166.66666666667
+Medical City Healthcare,United States,43,2026-10-17,2026-10-19,114488.37209302325
 "Medisolv, Inc.",United States,1,2026-10-06,2026-10-06,77959.64
+Medivet Group,United Kingdom,1,2026-10-21,2026-10-21,49517.8461
 Medix IT Staffing Solutions,United States,1,2026-10-14,2026-10-14,103233.46
 Medix Infusion,United States,3,2026-10-13,2026-10-13,60639.386666666665
 Medix Technology,United States,3,2026-10-06,2026-10-15,101381.7
 Megger Group,United Kingdom,1,2026-10-07,2026-10-07,57056.159700000004
 Menzies LLP,United Kingdom,2,2026-07-29,2026-08-22,69765.25925
-Mercor,United Kingdom,6,2026-08-15,2026-09-14,54346.72476666667
+Mercor,United Kingdom,7,2026-08-15,2026-10-21,56195.52061428571
 Mercor,United States,1,2026-10-12,2026-10-12,67072.87
 Mercury,United States,1,2026-10-12,2026-10-12,85997.53
 Meridian Business Support,United Kingdom,2,2026-09-16,2026-09-17,51247.04
@@ -1384,6 +1394,7 @@ Pacific Life Re,United Kingdom,2,2026-05-23,2026-08-27,79037.75785
 Pacific Technologies and Solutions,United States,1,2026-05-25,2026-05-25,110255.39
 Paddle,United Kingdom,1,2025-12-19,2025-12-19,75248.8589
 Padsplit,United States,1,2026-10-06,2026-10-06,69491.79
+Page Group,United Kingdom,1,2026-10-19,2026-10-19,60704.5141
 Paladin Consulting,United States,1,2026-10-10,2026-10-10,57192.76
 "Paladin Consulting, Inc.",United States,1,2026-10-16,2026-10-16,70801.46
 "Pantar Solutions, Inc.",United States,1,2026-09-28,2026-09-28,77166.47
@@ -1395,7 +1406,7 @@ Parsons,United States,4,2026-07-24,2026-09-18,140009.9725
 Parsons Corporation,United States,4,2026-08-08,2026-09-20,119585.2925
 Partners Southeast,United States,1,2026-10-06,2026-10-06,64204.53
 Pave Bank,United States,1,2026-10-06,2026-10-06,105950.51
-Pave Talent Partners Limited,United Kingdom,1,2026-10-16,2026-10-16,57150.0
+Pave Talent Partners Limited,United Kingdom,2,2026-10-16,2026-10-16,57150.0
 Pavilion Payments,United States,2,2026-10-12,2026-10-12,84746.81
 "PeakLnk Technologies, Inc.",United States,2,2026-10-13,2026-10-14,62552.305
 Pearson Carter,United Kingdom,6,2026-09-18,2026-10-10,74400.83333333333
@@ -1520,6 +1531,7 @@ Rapid Finance,United States,4,2026-10-06,2026-10-14,71890.14499999999
 Rapidhire,United Kingdom,1,2026-07-21,2026-07-21,52668.5637
 Ray Thomas,United States,1,2026-10-15,2026-10-15,65425.72
 "Rayomind Software Solutions LLC, DBA, Hire'in Solutions",United States,1,2026-05-20,2026-05-20,119774.95
+Real,United Kingdom,1,2026-10-14,2026-10-14,165100.0
 Rebel Recruitment Limited,United Kingdom,1,2026-09-16,2026-09-16,41372.79
 Reconomy,United Kingdom,1,2026-09-26,2026-09-26,50800.0
 Recruiterflow Staging,United Kingdom,1,2026-10-10,2026-10-10,106759.7306
@@ -1743,7 +1755,7 @@ State of Illinois,United States,1,2026-10-12,2026-10-12,57438.79
 State of Iowa,United States,2,2026-10-06,2026-10-06,48671.03
 Steck Systems,United States,1,2026-10-15,2026-10-15,67192.21
 Steer,United Kingdom,1,2026-10-12,2026-10-12,64862.316300000006
-SteerBridge,United States,2,2026-10-06,2026-10-06,101135.51500000001
+SteerBridge,United States,3,2026-10-06,2026-10-20,100538.37333333334
 Steerbridge,United States,1,2026-10-14,2026-10-14,106748.5
 Stellantis,United States,1,2026-09-18,2026-09-18,64014.38
 Stellar Professionals,United States,2,2026-10-12,2026-10-12,66099.61
@@ -1840,7 +1852,7 @@ Technology Ventures,United States,4,2026-10-06,2026-10-14,98940.7975
 Techtronic Industries,United States,1,2026-09-29,2026-09-29,82133.48
 "Techtronic Industries North America, Inc.",United States,1,2026-08-21,2026-08-21,61899.24
 "Tekaccel, Inc",United States,1,2026-09-16,2026-09-16,79394.9
-Tekcel8,United States,1,2026-10-16,2026-10-16,79334.73
+Tekcel8,United States,2,2026-10-16,2026-10-20,89260.32
 Tekever,United Kingdom,1,2026-06-13,2026-06-13,84998.2552
 Tekla Research,United States,2,2026-07-28,2026-09-26,92672.69
 Teksystems,United Kingdom,3,2026-10-12,2026-10-12,94230.10109999999
@@ -1867,6 +1879,7 @@ The Cigna Group,United States,1,2026-10-12,2026-10-12,110373.54
 The GARRETT GROUP,United States,1,2026-09-28,2026-09-28,99721.59
 The Garrett Group,United States,1,2026-10-07,2026-10-07,97102.96
 The Giant Bullseye,United States,2,2026-10-06,2026-10-06,54859.735
+The GoodPeople Business Limited,United Kingdom,1,2026-10-20,2026-10-20,38100.0
 The Gym Group,United Kingdom,1,2026-10-09,2026-10-09,43151.9076
 The Hawk Group,United States,2,2026-10-06,2026-10-14,78778.06
 The Health Foundation,United Kingdom,1,2026-10-12,2026-10-12,70505.32
@@ -1920,6 +1933,7 @@ Trans Union LLC,United States,5,2026-08-25,2026-10-06,98747.536
 TransTech Group,United States,3,2026-10-06,2026-10-07,63889.40333333334
 Transdev,United Kingdom,1,2026-07-26,2026-07-26,41882.8982
 Transform,United Kingdom,1,2025-10-16,2025-10-16,67432.1867
+Transport for London,United Kingdom,1,2026-10-20,2026-10-20,6.35
 Transunion,United States,3,2026-09-01,2026-10-12,95777.16333333333
 Trayport,United Kingdom,1,2026-09-05,2026-09-05,107474.2072
 Trellix,United Kingdom,2,2026-10-07,2026-10-07,75608.0911
@@ -1978,6 +1992,7 @@ University of Chichester,United Kingdom,1,2026-10-12,2026-10-12,6.35
 University of Edinburgh,United Kingdom,1,2026-10-17,2026-10-17,62003.94
 University of Miami,United States,2,2026-10-13,2026-10-13,47497.435
 University of Pittsburgh,United States,2,2026-10-01,2026-10-15,92302.83
+University of Portsmouth Information Services,United Kingdom,1,2026-10-21,2026-10-21,56827.42
 University of Rochester,United States,6,2026-06-13,2026-09-04,68994.02666666666
 University of Utah,United States,1,2026-10-06,2026-10-06,63595.32
 University of York,United Kingdom,1,2026-09-18,2026-09-18,46527.72
@@ -2053,6 +2068,7 @@ WWC Global,United States,1,2026-09-04,2026-09-04,85747.1
 WWC Global LLC,United States,1,2026-10-06,2026-10-06,101917.75
 Walmart,United States,14,2026-04-23,2026-10-13,121958.4892857143
 Walr,United Kingdom,1,2026-08-20,2026-08-20,82118.708
+Wandata Tech,United States,1,2026-10-20,2026-10-20,68218.45
 Warrantywise Ltd,United Kingdom,1,2026-10-15,2026-10-15,76200.0
 Warwick District Council,United Kingdom,1,2026-10-18,2026-10-18,48907.7
 Wasserman,United Kingdom,1,2026-07-16,2026-07-16,68642.14110000001
@@ -2129,6 +2145,7 @@ cognizant,United Kingdom,18,2025-05-22,2025-05-22,52982.820966666666
 dentsu,United Kingdom,3,2025-05-22,2025-05-22,57546.3797
 deutsche bank,United Kingdom,7,2025-05-22,2025-05-22,60226.653014285715
 dmg media,United Kingdom,1,2026-07-16,2026-07-16,64183.183800000006
+eFinancialCareers,United Kingdom,1,2026-10-20,2026-10-20,59863.888399999996
 "eMed, LLC",United States,2,2026-10-06,2026-10-07,116150.81
 "eSolutionsFirst, LLC",United States,2,2026-10-14,2026-10-17,99064.375
 ey,United Kingdom,5,2025-05-22,2025-07-10,56344.3247
