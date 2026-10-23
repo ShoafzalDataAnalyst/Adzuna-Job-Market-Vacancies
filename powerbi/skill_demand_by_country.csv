@@ -3,10 +3,10 @@ United Kingdom,airflow,2
 United Kingdom,aws,27
 United Kingdom,azure,74
 United Kingdom,bigquery,2
-United Kingdom,dax,7
-United Kingdom,dbt,20
-United Kingdom,etl,84
-United Kingdom,excel,41
+United Kingdom,dax,8
+United Kingdom,dbt,22
+United Kingdom,etl,93
+United Kingdom,excel,50
 United Kingdom,gcp,5
 United Kingdom,git,2
 United Kingdom,hadoop,2
@@ -14,45 +14,45 @@ United Kingdom,javascript,1
 United Kingdom,looker,1
 United Kingdom,machine learning,31
 United Kingdom,mongodb,1
-United Kingdom,mysql,17
+United Kingdom,mysql,19
 United Kingdom,postgresql,1
-United Kingdom,power bi,92
-United Kingdom,python,110
+United Kingdom,power bi,103
+United Kingdom,python,112
 United Kingdom,r programming,1
 United Kingdom,sas,3
-United Kingdom,snowflake,24
+United Kingdom,snowflake,26
 United Kingdom,spark,11
-United Kingdom,sql,117
-United Kingdom,statistics,22
+United Kingdom,sql,120
+United Kingdom,statistics,23
 United Kingdom,tableau,56
-United Kingdom,vba,9
+United Kingdom,vba,10
 United States,airflow,2
-United States,aws,29
+United States,aws,30
 United States,azure,113
 United States,bigquery,4
 United States,dax,26
-United States,dbt,104
-United States,etl,180
-United States,excel,91
+United States,dbt,107
+United States,etl,199
+United States,excel,107
 United States,gcp,6
 United States,git,3
 United States,hadoop,2
 United States,javascript,7
 United States,looker,5
-United States,machine learning,39
+United States,machine learning,52
 United States,mongodb,2
-United States,mysql,56
+United States,mysql,67
 United States,nosql,1
 United States,postgresql,2
-United States,power bi,160
+United States,power bi,178
 United States,powerpoint,5
-United States,python,191
+United States,python,198
 United States,r programming,8
 United States,redshift,1
-United States,sas,16
-United States,snowflake,54
-United States,spark,19
-United States,sql,287
-United States,statistics,135
-United States,tableau,121
+United States,sas,33
+United States,snowflake,56
+United States,spark,22
+United States,sql,290
+United States,statistics,136
+United States,tableau,125
 United States,vba,31
