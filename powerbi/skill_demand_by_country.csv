@@ -1,11 +1,11 @@
 ﻿country,skill_name,vacancy_count
 United Kingdom,airflow,2
 United Kingdom,aws,27
-United Kingdom,azure,76
+United Kingdom,azure,77
 United Kingdom,bigquery,2
-United Kingdom,dax,11
-United Kingdom,dbt,24
-United Kingdom,etl,94
+United Kingdom,dax,14
+United Kingdom,dbt,26
+United Kingdom,etl,96
 United Kingdom,excel,51
 United Kingdom,gcp,5
 United Kingdom,git,2
@@ -16,43 +16,43 @@ United Kingdom,machine learning,32
 United Kingdom,mongodb,1
 United Kingdom,mysql,20
 United Kingdom,postgresql,1
-United Kingdom,power bi,105
-United Kingdom,python,118
+United Kingdom,power bi,106
+United Kingdom,python,122
 United Kingdom,r programming,1
-United Kingdom,sas,4
-United Kingdom,snowflake,33
+United Kingdom,sas,5
+United Kingdom,snowflake,35
 United Kingdom,spark,11
-United Kingdom,sql,126
-United Kingdom,statistics,25
-United Kingdom,tableau,67
-United Kingdom,vba,11
-United States,airflow,2
-United States,aws,31
-United States,azure,118
+United Kingdom,sql,130
+United Kingdom,statistics,27
+United Kingdom,tableau,69
+United Kingdom,vba,14
+United States,airflow,3
+United States,aws,32
+United States,azure,133
 United States,bigquery,4
-United States,dax,27
-United States,dbt,108
-United States,etl,199
-United States,excel,158
+United States,dax,38
+United States,dbt,116
+United States,etl,206
+United States,excel,167
 United States,gcp,6
 United States,git,3
 United States,hadoop,2
 United States,javascript,7
 United States,looker,5
 United States,machine learning,52
-United States,mongodb,2
+United States,mongodb,3
 United States,mysql,67
 United States,nosql,1
 United States,postgresql,2
-United States,power bi,183
+United States,power bi,191
 United States,powerpoint,5
-United States,python,207
+United States,python,221
 United States,r programming,8
 United States,redshift,1
 United States,sas,33
 United States,snowflake,62
 United States,spark,22
-United States,sql,293
-United States,statistics,140
-United States,tableau,132
-United States,vba,31
+United States,sql,297
+United States,statistics,150
+United States,tableau,152
+United States,vba,34
