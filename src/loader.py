@@ -77,46 +77,70 @@ def upsert_table(df: pd.DataFrame, table: str, pk: str, engine) -> int:
     return len(new_rows)
 
 
-def load_all(
-    df_vacancies:     pd.DataFrame,
-    df_companies:     pd.DataFrame,
-    df_locations:     pd.DataFrame,
-    df_skills:        pd.DataFrame,
-    df_vacancy_skill: pd.DataFrame,
-    engine,
-) -> dict:
-    """Loads every table in dependency order and returns row-count stats."""
-    stats = {}
-    # Reference tables first, to satisfy foreign key relationships
-    stats["companies"]     = upsert_table(df_companies,     "companies",     "id",   engine)
-    stats["locations"]     = upsert_table(df_locations,     "locations",     "id",   engine)
-    stats["skills"]        = upsert_table(df_skills,        "skills",        "id",   engine)
-    stats["vacancies"]     = upsert_table(df_vacancies,     "vacancies",     "h_id", engine)
-    # vacancy_skill has a composite key (h_id, skill_id)
-    stats["vacancy_skill"] = _upsert_vacancy_skill(df_vacancy_skill, engine)
+def load_all(df_vacancies: pd.DataFrame, engine) -> dict:
+    """
+    Loads new vacancies, then rebuilds every derived table from them.
+    Returns row-count stats.
+    """
+    stats = {"vacancies": upsert_table(df_vacancies, "vacancies", "h_id", engine)}
+    stats.update(rebuild_reference_tables(engine))
     return stats
 
 
-def _upsert_vacancy_skill(df: pd.DataFrame, engine) -> int:
-    """Avoids duplicate rows in the vacancy_skill many-to-many table."""
-    if df.empty:
-        return 0
+def rebuild_reference_tables(engine) -> dict:
+    """
+    Rebuilds companies, locations, skills and vacancy_skill from the vacancies
+    table, which is the single source of truth.
 
-    if inspect(engine).has_table("vacancy_skill"):
-        with engine.connect() as conn:
-            existing = pd.read_sql("SELECT h_id, skill_id FROM vacancy_skill", conn)
-        existing_keys = set(existing["h_id"].astype(str) + "_" + existing["skill_id"].astype(str))
-    else:
-        existing_keys = set()
-    df = df.copy()
-    df["_key"] = df["h_id"].astype(str) + "_" + df["skill_id"].astype(str)
-    new_rows = df[~df["_key"].isin(existing_keys)].drop(columns=["_key"])
+    These four tables used to be filled by upserting rows keyed on ids that
+    were numbered from 1 again on every pipeline run, so the same id meant a
+    different skill or company from one daily run to the next. That attached
+    wrong skills to vacancies and duplicated skill links. Deriving the tables
+    from the vacancies table on every run makes them consistent by
+    construction, and repairs any damage from earlier runs.
+    """
+    with engine.connect() as conn:
+        vac = pd.read_sql(
+            "SELECT h_id, company, country, location, skills FROM vacancies", conn
+        )
 
-    if new_rows.empty:
-        return 0
-    new_rows.to_sql("vacancy_skill", con=engine, if_exists="append", index=False)
-    log.info("vacancy_skill: %d new links added", len(new_rows))
-    return len(new_rows)
+    # Companies and locations: one row per distinct value, numbered in sorted order
+    companies = sorted(vac["company"].dropna().unique())
+    df_companies = pd.DataFrame({
+        "id": range(1, len(companies) + 1), "name": companies, "website": None,
+    })
+
+    loc = (
+        vac[["country", "location"]].dropna().drop_duplicates()
+        .sort_values(["country", "location"]).reset_index(drop=True)
+    )
+    df_locations = pd.DataFrame({
+        "id": loc.index + 1, "country": loc["country"], "city": loc["location"],
+    })
+
+    # Skills: split the semicolon-separated text into one row per vacancy and skill
+    links = vac.dropna(subset=["skills"])[["h_id", "skills"]].copy()
+    links["skill"] = links["skills"].str.split(";")
+    links = links.explode("skill")
+    links["skill"] = links["skill"].str.strip()
+    links = links[links["skill"] != ""].drop_duplicates(["h_id", "skill"])
+
+    skill_names = sorted(links["skill"].unique())
+    df_skills = pd.DataFrame({"id": range(1, len(skill_names) + 1), "name": skill_names})
+    skill_id = dict(zip(df_skills["name"], df_skills["id"]))
+    df_links = pd.DataFrame({
+        "h_id": links["h_id"].to_numpy(),
+        "skill_id": links["skill"].map(skill_id).to_numpy(),
+    })
+
+    tables = {
+        "companies": df_companies, "locations": df_locations,
+        "skills": df_skills, "vacancy_skill": df_links,
+    }
+    for name, df in tables.items():
+        df.to_sql(name, con=engine, if_exists="replace", index=False)
+        log.info("%s: rebuilt with %d rows", name, len(df))
+    return {name: len(df) for name, df in tables.items()}
 
 
 # ── Dashboard views ───────────────────────────────────────────────────────────

@@ -53,18 +53,16 @@ def run():
     # ── 1. Collect jobs from every configured country ────────────────────────
     store = cleaner.NormalizationStore()
     vacancy_rows: list[dict] = []
-    skill_links:  list[dict] = []
     seen_ids: set = set()
 
     for country in config.ADZUNA_COUNTRIES:
         log.info("Collecting from country: %s", country)
         for job in collector.iter_jobs(country, config.SEARCH_TEXT):
-            vac_row, links = cleaner.parse_vacancy(job, store)
+            vac_row, _ = cleaner.parse_vacancy(job, store)
             if vac_row["h_id"] in seen_ids:
                 continue
             seen_ids.add(vac_row["h_id"])
             vacancy_rows.append(vac_row)
-            skill_links.extend(links)
 
     log.info("Collected %d unique vacancies in total", len(vacancy_rows))
 
@@ -79,45 +77,22 @@ def run():
         .reset_index(drop=True)
     )
 
-    df_companies = pd.DataFrame.from_records(
-        [{"id": v["id"], "name": v["name"], "website": v["website"]}
-         for v in store.companies.values()]
-    )
-    df_locations = pd.DataFrame.from_records(
-        [{"id": v["id"], "country": v["country"], "city": v["city"]}
-         for v in store.locations.values()]
-    )
-    df_skills = pd.DataFrame.from_records(
-        [{"id": v["id"], "name": v["name"]}
-         for v in store.skills.values()]
-    )
-    df_vacancy_skill = pd.DataFrame(skill_links).drop_duplicates()
-
-    # Columns written to the database (foreign key ids stay in the CSVs only)
+    # Columns written to the database
     df_vac_db = df_vac[[
         "h_id", "title", "position", "category", "publish_date",
         "company", "skills", "country", "location",
         "min_salary", "max_salary", "currency", "salary_is_predicted", "source_url"
     ]]
 
-    log.info("Vacancies: %d | Companies: %d | Locations: %d | Skills: %d | Links: %d",
-             len(df_vac_db), len(df_companies), len(df_locations),
-             len(df_skills), len(df_vacancy_skill))
+    log.info("Vacancies collected this run: %d", len(df_vac_db))
 
-    # ── 3. Save CSV snapshots ─────────────────────────────────────────────────
-    loader.save_csv(df_vac_db,        "vacancies")
-    loader.save_csv(df_companies,     "companies")
-    loader.save_csv(df_locations,     "locations")
-    loader.save_csv(df_skills,        "skills")
-    loader.save_csv(df_vacancy_skill, "vacancy_skill")
+    # ── 3. Save CSV snapshot ──────────────────────────────────────────────────
+    loader.save_csv(df_vac_db, "vacancies")
 
     # ── 4. Load into the database ─────────────────────────────────────────────
     try:
         engine = loader.build_engine()
-        stats  = loader.load_all(
-            df_vac_db, df_companies, df_locations,
-            df_skills, df_vacancy_skill, engine
-        )
+        stats  = loader.load_all(df_vac_db, engine)
         log.info("Database load results: %s", stats)
 
         # ── 5. Dashboard views ────────────────────────────────────────────────
