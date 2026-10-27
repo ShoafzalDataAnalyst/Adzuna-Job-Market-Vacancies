@@ -1,58 +1,55 @@
 ﻿country,skill_name,vacancy_count
-United Kingdom,airflow,2
-United Kingdom,aws,27
-United Kingdom,azure,77
+United Kingdom,airflow,3
+United Kingdom,aws,31
+United Kingdom,azure,39
 United Kingdom,bigquery,2
-United Kingdom,dax,14
-United Kingdom,dbt,26
-United Kingdom,etl,96
-United Kingdom,excel,51
-United Kingdom,gcp,5
+United Kingdom,dax,7
+United Kingdom,dbt,5
+United Kingdom,etl,24
+United Kingdom,excel,46
+United Kingdom,gcp,6
 United Kingdom,git,2
 United Kingdom,hadoop,2
 United Kingdom,javascript,1
-United Kingdom,looker,1
-United Kingdom,machine learning,32
+United Kingdom,looker,3
+United Kingdom,machine learning,33
 United Kingdom,mongodb,1
-United Kingdom,mysql,20
+United Kingdom,mysql,2
 United Kingdom,postgresql,1
-United Kingdom,power bi,106
-United Kingdom,python,122
+United Kingdom,power bi,103
+United Kingdom,python,70
 United Kingdom,r programming,1
-United Kingdom,sas,5
-United Kingdom,snowflake,35
+United Kingdom,sas,3
+United Kingdom,snowflake,21
 United Kingdom,spark,11
-United Kingdom,sql,131
-United Kingdom,statistics,27
-United Kingdom,tableau,69
-United Kingdom,vba,14
-United States,airflow,3
-United States,aws,32
-United States,azure,134
-United States,bigquery,4
-United States,dax,40
-United States,dbt,123
-United States,etl,206
-United States,excel,168
-United States,gcp,6
+United Kingdom,sql,119
+United Kingdom,statistics,19
+United Kingdom,tableau,18
+United Kingdom,vba,6
+United States,aws,33
+United States,azure,19
+United States,bigquery,5
+United States,dax,2
+United States,dbt,8
+United States,etl,117
+United States,excel,120
+United States,gcp,2
 United States,git,3
 United States,hadoop,2
-United States,javascript,7
-United States,looker,5
-United States,machine learning,52
-United States,mongodb,3
-United States,mysql,67
+United States,javascript,1
+United States,looker,6
+United States,machine learning,34
+United States,mongodb,1
 United States,nosql,1
-United States,postgresql,2
-United States,power bi,193
-United States,powerpoint,5
-United States,python,225
-United States,r programming,8
-United States,redshift,1
-United States,sas,33
-United States,snowflake,62
-United States,spark,23
-United States,sql,301
-United States,statistics,150
-United States,tableau,155
-United States,vba,34
+United States,postgresql,3
+United States,power bi,134
+United States,powerpoint,14
+United States,python,130
+United States,redshift,2
+United States,sas,3
+United States,snowflake,49
+United States,spark,10
+United States,sql,306
+United States,statistics,151
+United States,tableau,76
+United States,vba,3
