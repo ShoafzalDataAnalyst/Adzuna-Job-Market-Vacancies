@@ -14,7 +14,7 @@ United Kingdom,Ash Vale,1,1,83820.0
 United Kingdom,Ashland,1,1,63500.0
 United Kingdom,Ashmead Green,1,1,50800.0
 United Kingdom,Aston,1,1,51509.93
-United Kingdom,Balsall Heath,5,5,45072.3
+United Kingdom,Balsall Heath,6,6,46026.916666666664
 United Kingdom,Banbridge,1,1,67141.1789
 United Kingdom,Barbican,1,1,132080.0
 United Kingdom,Bargate,1,1,40640.0
@@ -43,7 +43,7 @@ United Kingdom,Bilsthorpe,1,1,50425.5913
 United Kingdom,Binfield,3,2,43867.49333333334
 United Kingdom,Birchills,1,1,38100.0
 United Kingdom,Birchwood Park,4,3,66504.099275
-United Kingdom,Birmingham,32,21,72346.33819375
+United Kingdom,Birmingham,33,22,71693.41885454545
 United Kingdom,Birstall,1,1,68768.2648
 United Kingdom,Blackburn,2,1,57150.0
 United Kingdom,Blackfriars,4,3,71160.852725
@@ -96,13 +96,14 @@ United Kingdom,Cheltenham,1,1,51866.2539
 United Kingdom,Cherry Hinton,2,1,50747.93
 United Kingdom,Chertsey,3,2,79109.27366666666
 United Kingdom,Chester,5,3,59254.00392
+United Kingdom,Chesterfield,2,1,57095.6948
 United Kingdom,Chilton Trinity,1,1,39272.21
 United Kingdom,Chorley,1,1,50800.0
 United Kingdom,Clerkenwell,1,1,66269.5398
 United Kingdom,Clevedon,2,1,56766.104400000004
 United Kingdom,Cliddesden,1,1,35560.0
 United Kingdom,Coalville,1,1,38877.1638
-United Kingdom,Colchester,1,1,75903.6582
+United Kingdom,Colchester,2,2,63351.8291
 United Kingdom,Coleraine,1,1,63500.0
 United Kingdom,Colton,1,1,57150.0
 United Kingdom,Conlig,1,1,70372.0843
@@ -158,11 +159,12 @@ United Kingdom,Englefield,3,3,148674.66666666666
 United Kingdom,Enham Alamein,1,1,52533.55
 United Kingdom,Ewell,1,1,78205.2538
 United Kingdom,Exeter,4,4,52582.743449999994
-United Kingdom,Fareham,2,2,129429.7767
+United Kingdom,Fareham,4,3,82679.03835
 United Kingdom,Fareham Common,1,1,181610.0
 United Kingdom,Farnborough,10,5,77511.22928
-United Kingdom,Farringdon,34,26,80215.7239382353
+United Kingdom,Farringdon,36,27,80839.29483055556
 United Kingdom,Fenchurch St,7,5,73799.38794285714
+United Kingdom,Ferniegair,1,1,44450.0
 United Kingdom,Fetcham,2,2,123444.0
 United Kingdom,Fieldhead Business Centre,2,2,38100.0
 United Kingdom,Finsbury,1,1,47943.744600000005
@@ -189,7 +191,7 @@ United Kingdom,Halifax,1,1,20320.0
 United Kingdom,Hammersmith,2,2,56823.127400000005
 United Kingdom,Harlington,1,1,51070.9672
 United Kingdom,Harlow,1,1,38619.43
-United Kingdom,Harpenden,1,1,53285.39
+United Kingdom,Harpenden,2,2,53285.39
 United Kingdom,Hatfield,1,1,77580.3757
 United Kingdom,Haugh,1,1,57150.0
 United Kingdom,Hazel Grove,2,1,34290.0
@@ -259,15 +261,16 @@ United Kingdom,Liverpool Street,1,1,73726.8782
 United Kingdom,Llandavenny,1,1,42555.4394
 United Kingdom,Llanfabon,1,1,21132.8
 United Kingdom,Lobley Hill,1,1,64785.24
-United Kingdom,London,644,347,80857.89749518633
+United Kingdom,London,651,352,80798.48299201229
 United Kingdom,London Fields,1,1,38100.0
 United Kingdom,Long Lawford,1,1,63471.0694
 United Kingdom,Lostock Hall,1,1,34328.1
 United Kingdom,Luton,2,2,71978.52
 United Kingdom,Macclesfield,1,1,72173.4904
 United Kingdom,Maidenhead,2,2,64332.94855
+United Kingdom,Malkins Bank,1,1,50800.0
 United Kingdom,Malvern,2,2,55342.47885
-United Kingdom,Manchester,70,48,64120.370325714284
+United Kingdom,Manchester,72,50,63044.80448333333
 United Kingdom,Manchester Science Park,5,4,57254.27208
 United Kingdom,Maney,3,2,48823.219600000004
 United Kingdom,Manor Park,1,1,79942.11850000001
@@ -323,6 +326,7 @@ United Kingdom,Penrhosgarnedd,2,1,51509.93
 United Kingdom,Pentonville,1,1,79179.1914
 United Kingdom,Peterborough,1,1,67157.5746
 United Kingdom,Plymouth,1,1,55510.3792
+United Kingdom,Poole,1,1,46982.0117
 United Kingdom,Poplar,4,4,76836.660525
 United Kingdom,Porters Wood,1,1,38100.0
 United Kingdom,Portsmouth,1,1,77557.8078
@@ -343,14 +347,14 @@ United Kingdom,Ronaldsway Airport,1,1,50800.0
 United Kingdom,Rotherham,2,1,50800.0
 United Kingdom,Rownhams,1,1,73060.56
 United Kingdom,Rudheath,1,1,0.0
-United Kingdom,Rusholme,12,11,69737.96483333333
+United Kingdom,Rusholme,13,12,68281.1983076923
 United Kingdom,Salford,2,2,72750.95305
 United Kingdom,Sandgate,1,1,70415.912
 United Kingdom,Sandwich,2,2,43242.5729
 United Kingdom,Sefton Park,1,1,93243.33649999999
 United Kingdom,Selly Oak,1,1,35623.5
 United Kingdom,Severalls Industrial Park,2,1,84559.14
-United Kingdom,Sheffield,6,5,67706.31831666666
+United Kingdom,Sheffield,7,6,65291.12998571428
 United Kingdom,Shiremoor,2,1,46228.0
 United Kingdom,Shotover Hill,1,1,40640.0
 United Kingdom,Shropshire,2,1,49212.5
@@ -369,7 +373,7 @@ United Kingdom,South East England,1,1,53859.1887
 United Kingdom,South East London,2,2,57240.6018
 United Kingdom,South West England,2,2,116854.52244999999
 United Kingdom,South West London,18,8,94371.46197777778
-United Kingdom,Southampton,6,6,49119.52118333333
+United Kingdom,Southampton,7,7,57523.8753
 United Kingdom,Spital Tongues,2,1,68260.52515
 United Kingdom,Spitalfields,5,2,66754.69758000001
 United Kingdom,St James's,1,1,67698.7597
@@ -380,9 +384,11 @@ United Kingdom,St. Albans,2,2,74709.40100000001
 United Kingdom,St. Augustines,2,1,76200.0
 United Kingdom,St. Helens,1,1,96256.7798
 United Kingdom,St. Johns,1,1,61843.92
+United Kingdom,St. Mary Cray,1,1,58150.76
 United Kingdom,St. Mildreds,1,1,37784.532
 United Kingdom,St. Peters,1,1,38100.0
 United Kingdom,Stanley,4,3,70421.5
+United Kingdom,Stenigot,1,1,57150.0
 United Kingdom,Stepney,1,1,76200.0
 United Kingdom,Stepps,1,1,61636.3004
 United Kingdom,Stevenage,1,1,69984.1628
@@ -416,7 +422,7 @@ United Kingdom,Tower Bridge,1,1,109303.566
 United Kingdom,Trafford Park,1,1,98864.9407
 United Kingdom,Tram Inn,2,2,42611.04
 United Kingdom,Tyne & Wear,1,1,88900.0
-United Kingdom,UK,379,224,59206.74898258575
+United Kingdom,UK,384,224,58807.04440625
 United Kingdom,Uphampton,1,1,63500.0
 United Kingdom,Uxbridge,1,1,44450.0
 United Kingdom,Venn,1,1,57150.0
@@ -433,15 +439,17 @@ United Kingdom,Warwickshire,4,3,92720.25842499999
 United Kingdom,Wasdale Head,2,2,30798.9859
 United Kingdom,Waterloo,1,1,55956.746100000004
 United Kingdom,Watford,3,3,44869.94666666666
+United Kingdom,Welling,1,1,67628.6811
 United Kingdom,Wellington,1,1,35529.520000000004
 United Kingdom,West Camel,3,3,61187.753333333334
 United Kingdom,West End,3,2,94882.90226666666
+United Kingdom,West Hampstead,1,1,55880.0
 United Kingdom,West Harnham,1,1,45173.9
 United Kingdom,West Kensington,1,1,132080.0
 United Kingdom,West London,3,3,86783.33333333333
 United Kingdom,West Midlands,5,4,59956.67714
 United Kingdom,Westerham,1,1,33020.0
-United Kingdom,Westminster,2,2,53975.0
+United Kingdom,Westminster,3,3,44450.0
 United Kingdom,Weybridge,2,1,62184.915
 United Kingdom,Wherstead,1,1,55021.4927
 United Kingdom,Whiteley,2,2,129485.91705
