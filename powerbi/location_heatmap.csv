@@ -14,7 +14,7 @@ United Kingdom,Ash Vale,1,1,83820.0
 United Kingdom,Ashland,1,1,63500.0
 United Kingdom,Ashmead Green,1,1,50800.0
 United Kingdom,Aston,1,1,51509.93
-United Kingdom,Balsall Heath,6,6,46026.916666666664
+United Kingdom,Balsall Heath,8,7,47537.6875
 United Kingdom,Banbridge,1,1,67141.1789
 United Kingdom,Barbican,1,1,132080.0
 United Kingdom,Bargate,1,1,40640.0
@@ -91,7 +91,7 @@ United Kingdom,Cardiff,7,4,75911.95492857143
 United Kingdom,Cardiff County,4,3,71598.0915
 United Kingdom,Carleton,2,2,51559.84735
 United Kingdom,Castleford,1,1,48497.7059
-United Kingdom,Central London,13,9,80519.33643076924
+United Kingdom,Central London,15,10,81213.42490666667
 United Kingdom,Chadwell Heath,1,1,38100.0
 United Kingdom,Chandler's Ford,1,1,88900.0
 United Kingdom,Charing Cross,5,2,79454.31912
@@ -117,7 +117,7 @@ United Kingdom,Coseley,1,1,35560.0
 United Kingdom,County Antrim,4,4,73142.70360000001
 United Kingdom,County Durham,1,1,52324.0
 United Kingdom,Coupar Angus,1,1,57150.0
-United Kingdom,Covent Garden,1,1,50800.0
+United Kingdom,Covent Garden,2,1,50800.0
 United Kingdom,Coventry,4,4,56622.5817
 United Kingdom,Craigavon,1,1,57150.0
 United Kingdom,Cranford,1,1,38290.5
@@ -138,6 +138,7 @@ United Kingdom,Derbyshire,1,1,45959.941100000004
 United Kingdom,Deritend,3,2,46926.5
 United Kingdom,Desford,3,2,38972.066666666666
 United Kingdom,Devonport,1,1,59898.432400000005
+United Kingdom,Dickens Heath,1,1,52303.68
 United Kingdom,Didcot,1,1,69850.0
 United Kingdom,Digswell,1,1,59765.08240000001
 United Kingdom,Diseworth,1,1,67236.721
@@ -166,7 +167,7 @@ United Kingdom,Exeter,4,4,52582.743449999994
 United Kingdom,Fareham,4,3,82679.03835
 United Kingdom,Fareham Common,1,1,181610.0
 United Kingdom,Farnborough,10,5,77511.22928
-United Kingdom,Farringdon,36,27,80839.29483055556
+United Kingdom,Farringdon,38,28,79585.17029473685
 United Kingdom,Fenchurch St,7,5,73799.38794285714
 United Kingdom,Ferniegair,1,1,44450.0
 United Kingdom,Fetcham,2,2,123444.0
@@ -179,7 +180,7 @@ United Kingdom,Fulwood,2,2,43894.635350000004
 United Kingdom,Garden Village,1,1,43944.54
 United Kingdom,Gateshead,6,5,62208.833333333336
 United Kingdom,Gaunts Earthcott,1,1,88634.57
-United Kingdom,Glasgow,21,14,65815.337
+United Kingdom,Glasgow,23,16,70141.82943478262
 United Kingdom,Glasgow City Centre,3,3,132715.0
 United Kingdom,Gloucester,4,3,69483.81137499999
 United Kingdom,Gloucestershire,1,1,63500.0
@@ -215,7 +216,7 @@ United Kingdom,Hillhouse,2,2,38100.0
 United Kingdom,Hilton,1,1,46990.0
 United Kingdom,Hinkshay,1,1,50747.93
 United Kingdom,Histon,1,1,57150.0
-United Kingdom,Holbeck,6,5,76209.36625
+United Kingdom,Holbeck,7,6,69948.74250000001
 United Kingdom,Holborn,6,6,75865.6344
 United Kingdom,Holyport,1,1,70182.1431
 United Kingdom,Hookwood,1,1,30480.0
@@ -266,7 +267,7 @@ United Kingdom,Liverpool Street,1,1,73726.8782
 United Kingdom,Llandavenny,1,1,42555.4394
 United Kingdom,Llanfabon,1,1,21132.8
 United Kingdom,Lobley Hill,1,1,64785.24
-United Kingdom,London,660,356,80642.4205530303
+United Kingdom,London,669,359,80778.64194813154
 United Kingdom,London Fields,1,1,38100.0
 United Kingdom,Long Lawford,1,1,63471.0694
 United Kingdom,Lostock Hall,1,1,34328.1
@@ -275,7 +276,7 @@ United Kingdom,Macclesfield,1,1,72173.4904
 United Kingdom,Maidenhead,2,2,64332.94855
 United Kingdom,Malkins Bank,1,1,50800.0
 United Kingdom,Malvern,2,2,55342.47885
-United Kingdom,Manchester,76,51,62211.00313947368
+United Kingdom,Manchester,77,52,62227.743358441556
 United Kingdom,Manchester Science Park,5,4,57254.27208
 United Kingdom,Maney,3,2,48823.219600000004
 United Kingdom,Manor Park,1,1,79942.11850000001
@@ -330,6 +331,7 @@ United Kingdom,Pendlebury,2,1,38100.0
 United Kingdom,Penrhosgarnedd,2,1,51509.93
 United Kingdom,Pentonville,1,1,79179.1914
 United Kingdom,Peterborough,1,1,67157.5746
+United Kingdom,Pimlico,1,1,93980.0
 United Kingdom,Plymouth,1,1,55510.3792
 United Kingdom,Poole,2,1,47845.770449999996
 United Kingdom,Poplar,4,4,76836.660525
@@ -375,7 +377,7 @@ United Kingdom,Snowhill,1,1,65861.5142
 United Kingdom,Solihull,1,1,82550.0
 United Kingdom,Somers Town,2,1,60897.770000000004
 United Kingdom,South East England,1,1,53859.1887
-United Kingdom,South East London,2,2,57240.6018
+United Kingdom,South East London,3,3,75599.03176666667
 United Kingdom,South Lanarkshire,1,1,10962.64
 United Kingdom,South West England,2,2,116854.52244999999
 United Kingdom,South West London,18,8,94371.46197777778
@@ -388,7 +390,7 @@ United Kingdom,St James's,1,1,67698.7597
 United Kingdom,St Lukes,1,1,44450.0
 United Kingdom,St Pancras,1,1,64112.1654
 United Kingdom,St Paul's,1,1,102919.23790000001
-United Kingdom,St. Albans,2,2,74709.40100000001
+United Kingdom,St. Albans,4,2,65590.05170000001
 United Kingdom,St. Augustines,2,1,76200.0
 United Kingdom,St. Helens,1,1,96256.7798
 United Kingdom,St. Johns,1,1,61843.92
@@ -405,7 +407,7 @@ United Kingdom,Stockingford,1,1,50800.0
 United Kingdom,Stoke Heath,1,1,55247.895599999996
 United Kingdom,Stoke Prior,1,1,48988.027500000004
 United Kingdom,Stoke-On-Trent,2,1,75098.02734999999
-United Kingdom,Strand,1,1,58181.5956
+United Kingdom,Strand,3,2,76543.8652
 United Kingdom,Stratford,8,6,48948.0018625
 United Kingdom,Stratford-Upon-Avon,3,3,49841.20079999999
 United Kingdom,Strood,1,1,44280.2518
@@ -431,7 +433,7 @@ United Kingdom,Tower Bridge,1,1,109303.566
 United Kingdom,Trafford Park,1,1,98864.9407
 United Kingdom,Tram Inn,2,2,42611.04
 United Kingdom,Tyne & Wear,1,1,88900.0
-United Kingdom,UK,388,227,58683.58260824742
+United Kingdom,UK,392,229,58482.21422219388
 United Kingdom,Uphampton,1,1,63500.0
 United Kingdom,Uxbridge,1,1,44450.0
 United Kingdom,Venn,1,1,57150.0
@@ -506,6 +508,7 @@ United States,Ames,2,2,66508.685
 United States,Anchorage,1,1,80687.49
 United States,Anderson,1,1,82133.48
 United States,Andover,3,1,60723.579999999994
+United States,Andrews Air Force Base,1,1,80284.45
 United States,Ankeny,2,2,105508.55000000002
 United States,Annandale,2,1,94616.31
 United States,Annapolis,16,13,131455.98125
@@ -543,7 +546,7 @@ United States,Berkeley,2,1,136378.175
 United States,Berkeley Heights,1,1,121021.66
 United States,Berkeley Lake,1,1,92185.37
 United States,Bessemer,1,1,72338.49
-United States,Bethesda,7,5,85879.16857142856
+United States,Bethesda,8,6,84377.03625
 United States,Bexar County,1,1,103821.8
 United States,Birmingham,6,5,76425.415
 United States,Bismarck,15,12,103962.69133333334
@@ -585,7 +588,7 @@ United States,California,7,5,108822.06142857143
 United States,Cambridge,3,1,96809.75
 United States,Cammack Village,13,11,160843.52
 United States,Camp Hill,2,2,71516.975
-United States,Camp Lejeune,1,1,95989.07
+United States,Camp Lejeune,2,1,96242.58
 United States,Campbell,3,2,104416.92666666668
 United States,Canton,1,1,93963.68
 United States,Cape Lookout National Seashore,1,1,106937.1
@@ -607,7 +610,7 @@ United States,Cerritos,1,1,56692.02
 United States,Chamberlayne,3,2,96149.08333333333
 United States,Champaign,1,1,77623.12
 United States,Chandler,1,1,66139.52
-United States,Chantilly,11,7,97023.4909090909
+United States,Chantilly,15,9,95713.78933333333
 United States,Chapel Hill,2,2,114074.645
 United States,Charleston,20,15,98288.9045
 United States,Charlotte,77,40,92511.6874025974
@@ -627,7 +630,7 @@ United States,Cincinnati Airport,2,2,80163.97
 United States,City of Sunrise,1,1,116895.75
 United States,Clarksburg,1,1,89234.76
 United States,Clarksville,1,1,77959.64
-United States,Clayton,1,1,64991.16
+United States,Clayton,2,2,73727.615
 United States,Clear Creek,1,1,98204.87
 United States,Cleveland,6,4,62604.636666666665
 United States,Clifton,1,1,83849.8
@@ -649,9 +652,10 @@ United States,Cottage,2,1,103426.88
 United States,Country Club,1,1,63553.97
 United States,Country Park Acres,2,2,119183.935
 United States,Covington,1,1,87069.19
+United States,Crane,1,1,77314.6
 United States,Cranston,2,1,91228.65
 United States,Creve Coeur,4,3,121145.33750000001
-United States,Crystal,9,7,100867.97222222222
+United States,Crystal,10,8,96517.29699999999
 United States,Cupertino,2,2,137187.33500000002
 United States,Cut Off,1,1,74006.72
 United States,Cypress,1,1,105458.27
@@ -668,7 +672,7 @@ United States,Delafield,1,1,69881.5
 United States,Delaware,1,1,74934.88
 United States,Delaware County,3,3,59085.003333333334
 United States,Denton,2,1,89014.0
-United States,Denver,15,13,91911.17466666667
+United States,Denver,16,14,92713.85125
 United States,Denville,1,1,81953.13
 United States,Derwood,6,4,84574.97833333333
 United States,Des Moines,20,16,96429.08
@@ -712,7 +716,7 @@ United States,Euclid,2,2,64652.240000000005
 United States,Euless,1,1,91000.0
 United States,Evanston,2,1,102844.975
 United States,Fairborn,1,1,110502.77
-United States,Fairfax,17,12,91245.68294117648
+United States,Fairfax,18,12,91881.78111111111
 United States,Fairview,2,1,91500.0
 United States,Falls Church City,6,5,83365.44166666667
 United States,Fargo,2,1,103511.72
@@ -734,8 +738,8 @@ United States,Florida,6,5,79932.23
 United States,Florin,1,1,111566.33
 United States,Flower Mound,2,1,91500.0
 United States,Forbes Village,2,2,91574.995
-United States,Forest Heights,1,1,116890.52
-United States,Fort Belvoir,6,6,77996.61
+United States,Forest Heights,2,2,125808.875
+United States,Fort Belvoir,7,6,78548.68285714286
 United States,Fort Bragg,1,1,80002.72
 United States,Fort George G Meade,4,3,97615.78
 United States,Fort Huachuca,1,1,61967.82
@@ -754,7 +758,7 @@ United States,Fountainebleau,9,7,99323.88444444444
 United States,Framingham,1,1,111135.71
 United States,Francisville,1,1,57255.57
 United States,Frankfort,20,16,110308.42
-United States,Franklin,4,4,80739.63
+United States,Franklin,5,5,90476.014
 United States,Frazer,7,2,93811.88714285714
 United States,Frederick,3,3,75362.5
 United States,Frisco,4,3,87253.3825
@@ -800,11 +804,11 @@ United States,Harahan,2,2,85845.205
 United States,Hartford,1,1,107412.89
 United States,Harvard Square,2,1,87673.045
 United States,Hathorne,1,1,52363.09
-United States,Havelock,3,2,82014.73
+United States,Havelock,4,3,91673.985
 United States,Hayes Valley,7,6,115976.79857142856
 United States,Hebron,1,1,52195.47
 United States,Helena,15,12,110763.05933333332
-United States,Herndon,14,10,106151.95142857144
+United States,Herndon,17,11,106035.78647058822
 United States,Hi Hat,2,1,85354.15
 United States,High Point,2,1,95597.055
 United States,Highland Bch,1,1,155479.53
@@ -820,15 +824,15 @@ United States,Horsham,1,1,74678.34
 United States,Houston,12,10,65072.75916666666
 United States,Huntington,2,2,84580.305
 United States,Huntington Beach,1,1,37962.08
-United States,Huntsville,41,29,96035.75585365854
+United States,Huntsville,42,30,95891.14261904762
 United States,Hurlburt Field,1,1,78544.34
 United States,Hyde Park,9,6,117860.34999999999
 United States,Idaho,1,1,48887.99
 United States,Illinois,6,5,78121.43666666666
 United States,Independence,1,1,94011.45
-United States,Indian Head,4,2,101675.7825
+United States,Indian Head,5,3,100491.262
 United States,Indiana,4,3,82959.7
-United States,Indianapolis,10,10,80644.641
+United States,Indianapolis,11,11,81519.01727272727
 United States,Indianola,1,1,82969.09
 United States,International,7,4,94179.09714285715
 United States,Inver Grove Heights,1,1,41047.42
@@ -840,7 +844,7 @@ United States,Jefferson City,1,1,89716.53
 United States,Jersey City,8,7,89707.89375
 United States,Johnston,1,1,130485.88
 United States,Joliet,1,1,79993.34
-United States,Juno Beach,6,4,75403.96666666666
+United States,Juno Beach,7,5,77157.31142857144
 United States,Kaneohe,1,1,71205.45
 United States,Kansas City,5,3,85916.056
 United States,Keller,2,1,48279.774999999994
@@ -937,7 +941,7 @@ United States,Monterey Park,1,1,57760.02
 United States,Montevallo,1,1,79730.73
 United States,Montgomery,1,1,55976.96
 United States,Montgomery Village,2,1,94310.95
-United States,Montpelier,14,11,108045.67285714285
+United States,Montpelier,15,12,106340.122
 United States,Moorefield,1,1,75646.59
 United States,Moorestown,2,1,142576.29499999998
 United States,Morrisville,2,2,101074.64499999999
@@ -957,7 +961,7 @@ United States,New Brunswick,3,2,93283.66333333333
 United States,New Haven,3,3,78809.54333333333
 United States,New Iberia,1,1,55375.06
 United States,New Jersey,7,4,81804.79428571429
-United States,New York,9,9,93824.62222222221
+United States,New York,11,11,100658.82818181819
 United States,New York City,4,4,108301.5625
 United States,Newark,13,10,103110.09846153847
 United States,Newburgh Heights,2,2,91497.36499999999
@@ -975,7 +979,7 @@ United States,North Chevy Chase,2,1,97600.08
 United States,North Chicago,1,1,71238.12
 United States,North Hills,1,1,114400.0
 United States,North Laurel,1,1,66860.97
-United States,North Springfield,7,6,107746.48142857142
+United States,North Springfield,8,7,99341.74875
 United States,North Suburban,1,1,80054.84
 United States,Northlake,22,17,95736.20954545453
 United States,Ny State Campus,70,57,102642.47742857142
@@ -1013,14 +1017,14 @@ United States,Pennsylvania,4,4,72146.43
 United States,Philadelphia,10,8,86282.518
 United States,Philatelic,7,7,162963.4957142857
 United States,Phillips Ranch,1,1,85810.42
-United States,Phoenix,53,42,83547.82773584906
+United States,Phoenix,54,42,83081.15277777778
 United States,Pico Heights,2,2,98406.4
 United States,Pierre,14,12,163285.48857142855
-United States,Pimmit,27,14,101577.03
+United States,Pimmit,28,15,102623.6567857143
 United States,Piscataway,1,1,105672.8
 United States,Pittsburgh,7,6,74710.6
 United States,Plano,25,16,91088.75
-United States,Plantation,5,3,86094.688
+United States,Plantation,6,3,92310.36
 United States,Pleasant Prairie,1,1,56802.91
 United States,Plymouth,1,1,61276.02
 United States,Pomona,2,2,70250.435
@@ -1042,7 +1046,7 @@ United States,Queens,2,2,73760.82
 United States,Queensborough,2,2,134967.66
 United States,Quincy,1,1,71875.15
 United States,Quivira,3,2,92118.87333333334
-United States,Raleigh,22,19,95488.77136363638
+United States,Raleigh,23,20,95282.2495652174
 United States,Ralston,1,1,96159.22
 United States,Raritan,2,2,108888.82
 United States,Raymond,1,1,95699.96
@@ -1050,7 +1054,7 @@ United States,Reading,1,1,113606.53
 United States,Redmond,14,10,113830.66
 United States,Redstone Arsenal,13,12,99748.31692307693
 United States,Reno,1,1,52052.01
-United States,Reston,11,9,106388.42454545455
+United States,Reston,12,10,108655.90833333333
 United States,Rhode Island,1,1,74794.23
 United States,Richardson,5,3,95707.222
 United States,Richmond,27,20,83436.31037037037
@@ -1059,11 +1063,12 @@ United States,Ridgefield,1,1,102072.8
 United States,Riverside,2,2,87753.06
 United States,Robertson,1,1,54615.84
 United States,Rochester,8,3,59999.737499999996
+United States,Rock Island,1,1,98950.09
 United States,Rockville,3,3,83969.87666666666
 United States,Rocky Hill,1,1,94562.48
 United States,Romeoville,1,1,70025.67
 United States,Roseburg,1,1,94967.62
-United States,Rosslyn,7,6,121025.31714285714
+United States,Rosslyn,8,7,110106.13
 United States,Rowlett,3,2,90333.33333333333
 United States,Royalton,1,1,88018.94
 United States,Rubidoux,1,1,100619.48
@@ -1081,7 +1086,7 @@ United States,Salt Lake City,9,7,97613.41333333333
 United States,San Antonio,4,4,64137.9675
 United States,San Bernardino,1,1,102287.38
 United States,San Carlos,1,1,110840.83
-United States,San Diego,12,10,107857.17166666668
+United States,San Diego,13,11,111543.64153846154
 United States,San Francisco,1,1,75242.09
 United States,San Jose,1,1,70296.79
 United States,Sandy Hook,1,1,104770.48
@@ -1134,9 +1139,9 @@ United States,Stamford,9,2,70476.45444444445
 United States,Stanford,1,1,151995.81
 United States,Star,1,1,107671.95
 United States,State Farm,26,21,116009.54384615386
-United States,State House,16,13,132968.82
+United States,State House,17,14,131281.08705882353
 United States,Sterling,1,1,125272.18
-United States,Stratmoor Hills,3,3,148440.13999999998
+United States,Stratmoor Hills,4,4,136344.62
 United States,Suffolk,1,1,107357.18
 United States,Sugar Land,1,1,68095.08
 United States,Sully Station,2,1,92583.20999999999
@@ -1157,14 +1162,14 @@ United States,The Woodlands,1,1,91558.22
 United States,Thompsons Station,2,1,90542.085
 United States,Times Square,11,10,117230.98727272726
 United States,Topeka,15,13,109369.3
-United States,Trade,13,7,111552.64
+United States,Trade,14,8,112349.25785714285
 United States,Trammells,9,7,95050.37555555555
 United States,Travelers Rest,2,1,95280.475
-United States,Trenton,17,15,113815.45000000001
+United States,Trenton,18,16,112422.97555555556
 United States,Triana,14,13,65339.53642857143
 United States,Triangle,3,2,137979.05
 United States,Troy,1,1,67080.67
-United States,Tuckahoe,1,1,95968.57
+United States,Tuckahoe,2,2,90954.275
 United States,Tucson,3,2,120989.03000000001
 United States,Tukwila,2,2,103841.88
 United States,Tulsa,2,2,74320.7
@@ -1174,7 +1179,7 @@ United States,Tuxedo,1,1,168724.45
 United States,Tyler Park,1,1,202883.94
 United States,Tysons,4,3,92505.6675
 United States,Tysons Corner,8,4,102398.23875
-United States,US,241,183,89401.56261410788
+United States,US,246,188,90173.14833333333
 United States,Uniontown,1,1,93399.13
 United States,United,1,1,98139.23
 United States,University Park,2,1,91500.0
@@ -1185,10 +1190,11 @@ United States,Venus,1,1,102181.69
 United States,Vernon Hills,1,1,109767.33
 United States,Verona,2,1,44778.850000000006
 United States,Victory Gardens,1,1,118644.57
-United States,Vienna,5,4,83732.348
+United States,Vienna,6,5,81144.37666666666
 United States,Vigus,1,1,104982.33
 United States,Villa Park,1,1,180573.86
 United States,Village of Los Ranchos,1,1,55427.63
+United States,Vinnings,1,1,137523.44
 United States,Virginia,12,9,83897.04
 United States,Virginia Beach,7,4,69856.90714285713
 United States,Visalia,1,1,75763.12
@@ -1202,14 +1208,14 @@ United States,Warner Robins,1,1,101608.07
 United States,Warren,7,2,93136.10571428572
 United States,Washington,48,38,96576.003125
 United States,Washington Grove,2,1,90724.85500000001
-United States,"Washington, D.C.",55,40,108722.57454545454
+United States,"Washington, D.C.",57,41,107914.88631578947
 United States,Watkins,2,2,79401.7
 United States,Waukegan,4,4,72035.6675
 United States,Wayzata,1,1,74531.06
 United States,Wellston,3,3,118736.36666666668
 United States,Wenonah,1,1,75116.19
 United States,West Bethesda,3,2,81981.39333333333
-United States,West Falls Church,1,1,134047.08
+United States,West Falls Church,2,1,134047.08
 United States,West Hollywood,1,1,71570.77
 United States,West Indianapolis,4,4,83673.43
 United States,West Lake Hills,1,1,119947.9
@@ -1218,7 +1224,7 @@ United States,West Mclean,3,2,99044.89666666667
 United States,West Milwaukee,1,1,99275.43
 United States,West Palm Beach,1,1,77503.37
 United States,West Side,1,1,61048.36
-United States,West Springfield,8,6,102658.07875
+United States,West Springfield,9,7,99403.19111111111
 United States,West Trenton,4,4,88103.105
 United States,West Virginia,3,3,78282.58666666667
 United States,Westchester,1,1,40283.68
@@ -1228,8 +1234,9 @@ United States,Westlake,2,2,89197.95999999999
 United States,Westminster,2,2,81389.20499999999
 United States,Westmoreland County,3,2,102657.62666666666
 United States,Westworth Village,1,1,85804.2
+United States,Wetmore,1,1,63448.96
 United States,Weymouth,1,1,74070.84
-United States,Wharton,1,1,110043.72
+United States,Wharton,2,1,110855.95999999999
 United States,Whippany,1,1,154673.67
 United States,Whitestone,1,1,100711.93
 United States,Wichita,1,1,56671.91
