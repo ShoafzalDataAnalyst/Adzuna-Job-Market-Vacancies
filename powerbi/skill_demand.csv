@@ -3,29 +3,29 @@ airflow,3,3
 aws,65,38
 azure,60,42
 bigquery,7,7
-dax,13,10
+dax,14,10
 dbt,16,14
 etl,146,75
-excel,184,103
+excel,188,106
 gcp,9,8
 git,5,5
 hadoop,4,3
 javascript,2,2
 looker,9,9
-machine learning,70,44
+machine learning,72,45
 mongodb,2,2
 mysql,2,1
 nosql,1,1
 postgresql,4,4
-power bi,277,178
+power bi,279,178
 powerpoint,17,4
-python,218,141
+python,220,141
 r programming,1,1
 redshift,2,2
 sas,7,5
 snowflake,74,61
 spark,31,30
-sql,475,289
-statistics,185,96
-tableau,106,71
+sql,479,290
+statistics,188,97
+tableau,109,72
 vba,9,4
