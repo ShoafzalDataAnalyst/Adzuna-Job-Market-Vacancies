@@ -1,6 +1,6 @@
 ﻿category,country,vacancy_count,avg_min_usd,avg_max_usd
-Accounting & Finance Jobs,United Kingdom,160,62806.08581125001,65682.34212375
-Accounting & Finance Jobs,United States,281,84905.0690391459,85604.28612099643
+Accounting & Finance Jobs,United Kingdom,162,62587.3452308642,65428.09220617284
+Accounting & Finance Jobs,United States,282,84851.00826241134,85547.74585106382
 Admin Jobs,United Kingdom,35,41640.582200000004,42430.08677142857
 Admin Jobs,United States,43,57602.30302325581,57989.279767441854
 Consultancy Jobs,United Kingdom,68,67581.27368088235,68457.33088676471
@@ -17,12 +17,12 @@ Graduate Jobs,United Kingdom,48,45201.84,46949.54520833333
 Graduate Jobs,United States,2,62552.305,62552.305
 HR & Recruitment Jobs,United Kingdom,20,64118.00613000001,65417.025630000004
 HR & Recruitment Jobs,United States,67,120640.98343283581,123421.2819402985
-Healthcare & Nursing Jobs,United Kingdom,20,50671.474095,56859.03431052631
+Healthcare & Nursing Jobs,United Kingdom,21,50968.24294761905,57390.091595000005
 Healthcare & Nursing Jobs,United States,69,91311.55376811595,107297.06101449275
 Hospitality & Catering Jobs,United Kingdom,1,889.0,889.0
 Hospitality & Catering Jobs,United States,1,58631.13,58631.13
-IT Jobs,United Kingdom,1785,71099.69677680673,77441.31335383754
-IT Jobs,United States,2929,100129.30559918062,101570.31652441107
+IT Jobs,United Kingdom,1794,71076.29424548494,77426.44786309922
+IT Jobs,United States,3011,100204.33349385585,102342.06879774161
 Legal Jobs,United Kingdom,6,65730.91798333333,66154.25131666668
 Legal Jobs,United States,16,96400.149375,100950.149375
 Logistics & Warehouse Jobs,United Kingdom,6,57694.82365,61928.15698333333
@@ -31,7 +31,7 @@ Manufacturing Jobs,United States,4,82616.9875,82616.9875
 Other/General Jobs,United Kingdom,1,84613.2801,84613.2801
 Other/General Jobs,United States,1,21944.19,21944.19
 "PR, Advertising & Marketing Jobs",United Kingdom,68,65975.46420294118,67955.0580264706
-"PR, Advertising & Marketing Jobs",United States,46,99175.405,99175.405
+"PR, Advertising & Marketing Jobs",United States,47,98326.16638297873,98326.16638297873
 Part time Jobs,United Kingdom,2,36057.840000000004,36057.840000000004
 Part time Jobs,United States,1,54382.99,54382.99
 Property Jobs,United Kingdom,2,57578.28845000001,63033.57345
