@@ -1,14 +1,14 @@
 ﻿skill_name,vacancy_count,company_count
 airflow,3,3
-aws,67,39
+aws,68,40
 azure,60,42
 bigquery,9,9
 dax,16,11
 dbt,17,15
-etl,148,76
-excel,193,106
+etl,149,76
+excel,196,108
 gcp,11,10
-git,5,5
+git,6,6
 hadoop,5,4
 javascript,2,2
 looker,10,10
@@ -17,15 +17,15 @@ mongodb,2,2
 mysql,2,1
 nosql,1,1
 postgresql,4,4
-power bi,288,184
-powerpoint,17,4
-python,227,143
+power bi,298,189
+powerpoint,18,5
+python,234,149
 r programming,1,1
 redshift,2,2
 sas,7,5
-snowflake,79,63
+snowflake,81,65
 spark,31,30
-sql,511,295
+sql,522,303
 statistics,193,98
-tableau,114,75
+tableau,118,78
 vba,9,4
