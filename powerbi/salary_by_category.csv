@@ -1,7 +1,7 @@
 ﻿category,country,vacancy_count,avg_min_usd,avg_max_usd
-Accounting & Finance Jobs,United Kingdom,177,62448.172438983056,65091.22899265537
-Accounting & Finance Jobs,United States,309,84450.07097087378,85290.33310679611
-Admin Jobs,United Kingdom,38,42374.14957368421,43101.324836842105
+Accounting & Finance Jobs,United Kingdom,179,62315.566356424584,64929.09155195531
+Accounting & Finance Jobs,United States,311,84479.48530546624,85327.72003215434
+Admin Jobs,United Kingdom,41,42088.555804878044,42949.863609756096
 Admin Jobs,United States,46,57592.15369565217,57953.89282608695
 Consultancy Jobs,United Kingdom,69,67153.60391739132,68016.96464202898
 Consultancy Jobs,United States,97,123463.08288659793,123505.96948453608
@@ -12,7 +12,7 @@ Customer Services Jobs,United States,4,72036.6825,72036.6825
 "Energy, Oil & Gas Jobs",United Kingdom,9,61747.49736666666,62311.94181111111
 "Energy, Oil & Gas Jobs",United States,73,88937.7305479452,88937.7305479452
 Engineering Jobs,United Kingdom,61,77769.03669836065,85649.76145245902
-Engineering Jobs,United States,92,99946.86956521739,101168.17391304347
+Engineering Jobs,United States,93,99631.34505376343,100839.51709677419
 Graduate Jobs,United Kingdom,50,45299.468455999995,46977.265456
 Graduate Jobs,United States,2,62552.305,62552.305
 HR & Recruitment Jobs,United Kingdom,21,63554.88637619048,64792.047804761896
@@ -21,8 +21,8 @@ Healthcare & Nursing Jobs,United Kingdom,22,50372.05560454545,56459.71206190476
 Healthcare & Nursing Jobs,United States,70,91307.103,107335.67442857142
 Hospitality & Catering Jobs,United Kingdom,1,889.0,889.0
 Hospitality & Catering Jobs,United States,1,58631.13,58631.13
-IT Jobs,United Kingdom,1929,70768.07241995852,76958.9802273482
-IT Jobs,United States,3228,99426.45325588601,101624.94179368031
+IT Jobs,United Kingdom,1941,70766.70145461103,77005.09578308406
+IT Jobs,United States,3252,99350.10529827798,101549.28149753998
 Legal Jobs,United Kingdom,6,65730.91798333333,66154.25131666668
 Legal Jobs,United States,16,96400.149375,100950.149375
 Logistics & Warehouse Jobs,United Kingdom,7,55258.42027142857,58886.9917
@@ -41,7 +41,7 @@ Retail Jobs,United States,1,56692.02,56692.02
 Sales Jobs,United Kingdom,25,55721.57258000001,59556.97258
 Sales Jobs,United States,12,75455.74166666667,75455.74166666667
 Scientific & QA Jobs,United Kingdom,40,45660.929125,48056.911125
-Scientific & QA Jobs,United States,67,83313.24104477612,83465.04701492538
+Scientific & QA Jobs,United States,68,83345.73985294117,83495.31338235294
 Social work Jobs,United Kingdom,1,44280.2518,44280.2518
 Social work Jobs,United States,1,38525.82,38525.82
 Teaching Jobs,United Kingdom,21,49812.64515238095,55914.26943809524
