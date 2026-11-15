@@ -6,27 +6,27 @@ bigquery,11,10
 dax,25,15
 dbt,19,15
 etl,160,84
-excel,216,117
+excel,218,119
 gcp,12,10
 git,8,8
 hadoop,5,4
 javascript,2,2
 looker,14,12
-machine learning,77,47
+machine learning,78,48
 mongodb,2,2
 mysql,2,1
 nosql,1,1
 postgresql,5,5
-power bi,342,209
+power bi,346,212
 powerpoint,18,5
-python,268,164
+python,269,164
 r programming,1,1
 redshift,2,2
 sas,15,12
 snowflake,90,70
 spark,33,32
 spss,1,1
-sql,586,333
-statistics,206,105
+sql,588,335
+statistics,207,106
 tableau,133,83
 vba,9,4

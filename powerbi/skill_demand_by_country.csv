@@ -6,7 +6,7 @@ United Kingdom,bigquery,4
 United Kingdom,dax,22
 United Kingdom,dbt,10
 United Kingdom,etl,27
-United Kingdom,excel,75
+United Kingdom,excel,76
 United Kingdom,gcp,8
 United Kingdom,git,2
 United Kingdom,hadoop,2
@@ -16,14 +16,14 @@ United Kingdom,machine learning,34
 United Kingdom,mongodb,1
 United Kingdom,mysql,2
 United Kingdom,postgresql,1
-United Kingdom,power bi,175
+United Kingdom,power bi,177
 United Kingdom,powerpoint,1
-United Kingdom,python,95
+United Kingdom,python,96
 United Kingdom,r programming,1
 United Kingdom,sas,5
 United Kingdom,snowflake,30
 United Kingdom,spark,11
-United Kingdom,sql,172
+United Kingdom,sql,173
 United Kingdom,statistics,34
 United Kingdom,tableau,44
 United Kingdom,vba,6
@@ -33,17 +33,17 @@ United States,bigquery,7
 United States,dax,3
 United States,dbt,9
 United States,etl,133
-United States,excel,141
+United States,excel,142
 United States,gcp,4
 United States,git,6
 United States,hadoop,3
 United States,javascript,1
 United States,looker,9
-United States,machine learning,43
+United States,machine learning,44
 United States,mongodb,1
 United States,nosql,1
 United States,postgresql,4
-United States,power bi,167
+United States,power bi,169
 United States,powerpoint,17
 United States,python,173
 United States,redshift,2
@@ -51,7 +51,7 @@ United States,sas,10
 United States,snowflake,60
 United States,spark,22
 United States,spss,1
-United States,sql,414
-United States,statistics,172
+United States,sql,415
+United States,statistics,173
 United States,tableau,89
 United States,vba,3
