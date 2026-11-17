@@ -3,7 +3,7 @@ airflow,3,3
 aws,70,40
 azure,68,47
 bigquery,11,10
-dax,25,15
+dax,27,17
 dbt,19,15
 etl,160,84
 excel,218,119
@@ -17,16 +17,16 @@ mongodb,2,2
 mysql,2,1
 nosql,1,1
 postgresql,5,5
-power bi,346,212
+power bi,352,216
 powerpoint,18,5
-python,269,164
+python,271,164
 r programming,1,1
 redshift,2,2
 sas,15,12
 snowflake,90,70
 spark,33,32
 spss,1,1
-sql,589,336
+sql,597,340
 statistics,207,106
 tableau,133,83
 vba,9,4
