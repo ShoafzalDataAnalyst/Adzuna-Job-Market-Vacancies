@@ -6,7 +6,7 @@ bigquery,13,12
 dax,30,19
 dbt,19,15
 etl,161,84
-excel,226,123
+excel,232,127
 gcp,12,10
 git,8,8
 hadoop,6,5
@@ -17,16 +17,16 @@ mongodb,2,2
 mysql,2,1
 nosql,1,1
 postgresql,5,5
-power bi,361,221
+power bi,369,223
 powerpoint,18,5
-python,279,168
+python,282,169
 r programming,1,1
 redshift,2,2
 sas,15,12
-snowflake,91,71
+snowflake,93,72
 spark,34,33
 spss,1,1
-sql,619,348
-statistics,214,109
-tableau,138,84
+sql,623,350
+statistics,215,109
+tableau,139,84
 vba,9,4
