@@ -1,9 +1,9 @@
 ﻿category,country,vacancy_count,avg_min_usd,avg_max_usd
-Accounting & Finance Jobs,United Kingdom,192,62291.46892604167,64982.565853125
-Accounting & Finance Jobs,United States,320,83939.91553125,84777.29365625
-Admin Jobs,United Kingdom,52,42630.64611346154,43939.99169038462
+Accounting & Finance Jobs,United Kingdom,196,61841.3983372449,64931.14634744898
+Accounting & Finance Jobs,United States,324,84366.35660493826,85193.39672839506
+Admin Jobs,United Kingdom,53,43242.84223584906,44527.48317924528
 Admin Jobs,United States,51,59520.00450980392,59858.906470588234
-Consultancy Jobs,United Kingdom,73,66910.63753972603,67726.69082739727
+Consultancy Jobs,United Kingdom,75,66760.58513066667,67554.87699733333
 Consultancy Jobs,United States,100,123609.7977,123651.3977
 Creative & Design Jobs,United Kingdom,5,64419.723840000006,72039.72384
 Creative & Design Jobs,United States,4,59414.91,59414.91
@@ -12,8 +12,8 @@ Customer Services Jobs,United States,4,72036.6825,72036.6825
 "Energy, Oil & Gas Jobs",United Kingdom,10,59128.74763,59636.74763
 "Energy, Oil & Gas Jobs",United States,75,88693.97413333332,88693.97413333332
 Engineering Jobs,United Kingdom,65,74979.3533723077,82487.14398769231
-Engineering Jobs,United States,95,99265.458,100448.19484210527
-Graduate Jobs,United Kingdom,54,42649.53134814814,44323.5794962963
+Engineering Jobs,United States,96,99211.55375,100381.97041666666
+Graduate Jobs,United Kingdom,55,41874.08532363636,43531.13514181818
 Graduate Jobs,United States,2,62552.305,62552.305
 HR & Recruitment Jobs,United Kingdom,23,63406.548430434785,65016.52190869565
 HR & Recruitment Jobs,United States,101,124782.45891089109,137715.92425742574
@@ -21,8 +21,8 @@ Healthcare & Nursing Jobs,United Kingdom,22,50372.05560454545,56459.71206190476
 Healthcare & Nursing Jobs,United States,72,91108.46875,106955.69097222222
 Hospitality & Catering Jobs,United Kingdom,1,889.0,889.0
 Hospitality & Catering Jobs,United States,2,48127.009999999995,48127.009999999995
-IT Jobs,United Kingdom,2175,70000.97656064368,76420.58387455132
-IT Jobs,United States,3569,99344.24291678342,101915.70411039508
+IT Jobs,United Kingdom,2192,69895.56356172446,76359.81006726027
+IT Jobs,United States,3595,99263.55715994436,101816.42085952712
 Legal Jobs,United Kingdom,9,57730.93045555556,58013.152677777776
 Legal Jobs,United States,16,96400.149375,100950.149375
 Logistics & Warehouse Jobs,United Kingdom,11,54214.449263636365,58255.35835454545
@@ -30,7 +30,7 @@ Logistics & Warehouse Jobs,United States,8,60140.347499999996,60140.347499999996
 Manufacturing Jobs,United States,5,76630.584,76630.584
 Other/General Jobs,United Kingdom,1,84613.2801,84613.2801
 Other/General Jobs,United States,1,21944.19,21944.19
-"PR, Advertising & Marketing Jobs",United Kingdom,83,68713.23952530121,71972.30434457831
+"PR, Advertising & Marketing Jobs",United Kingdom,84,68509.2730952381,71729.53952380952
 "PR, Advertising & Marketing Jobs",United States,47,98326.16638297873,98326.16638297873
 Part time Jobs,United Kingdom,2,36057.840000000004,36057.840000000004
 Part time Jobs,United States,1,54382.99,54382.99
@@ -40,11 +40,11 @@ Retail Jobs,United Kingdom,9,40685.33758888889,41673.115366666665
 Retail Jobs,United States,30,54047.399,54047.399
 Sales Jobs,United Kingdom,26,55752.37672307692,59440.26133846154
 Sales Jobs,United States,14,73571.14571428571,73571.14571428571
-Scientific & QA Jobs,United Kingdom,47,45215.469531914896,47854.07017021276
-Scientific & QA Jobs,United States,71,83008.73197183099,83574.52070422535
+Scientific & QA Jobs,United Kingdom,48,44273.48058333333,48366.822875000005
+Scientific & QA Jobs,United States,72,82996.2473611111,83554.17791666667
 Social work Jobs,United Kingdom,1,44280.2518,44280.2518
 Social work Jobs,United States,1,38525.82,38525.82
-Teaching Jobs,United Kingdom,23,47689.806443478265,53568.52600869565
+Teaching Jobs,United Kingdom,24,46363.131174999995,51996.90409166666
 Teaching Jobs,United States,5,80902.198,80902.198
 Trade & Construction Jobs,United Kingdom,2,49252.20655,52427.20655
 Trade & Construction Jobs,United States,7,57653.19142857143,57653.19142857143
