@@ -1,39 +1,39 @@
 ﻿country,skill_name,vacancy_count
 United Kingdom,airflow,3
-United Kingdom,aws,32
+United Kingdom,aws,34
 United Kingdom,azure,43
-United Kingdom,bigquery,4
-United Kingdom,dax,26
-United Kingdom,dbt,10
-United Kingdom,etl,28
-United Kingdom,excel,92
+United Kingdom,bigquery,6
+United Kingdom,dax,27
+United Kingdom,dbt,12
+United Kingdom,etl,30
+United Kingdom,excel,97
 United Kingdom,gcp,8
 United Kingdom,git,2
 United Kingdom,hadoop,2
 United Kingdom,javascript,1
-United Kingdom,looker,5
-United Kingdom,machine learning,34
+United Kingdom,looker,11
+United Kingdom,machine learning,37
 United Kingdom,mongodb,1
 United Kingdom,mysql,2
 United Kingdom,postgresql,1
-United Kingdom,power bi,195
+United Kingdom,power bi,208
 United Kingdom,powerpoint,1
-United Kingdom,python,99
+United Kingdom,python,113
 United Kingdom,r programming,1
 United Kingdom,sas,6
-United Kingdom,snowflake,33
-United Kingdom,spark,11
-United Kingdom,sql,187
-United Kingdom,statistics,39
-United Kingdom,tableau,48
+United Kingdom,snowflake,40
+United Kingdom,spark,12
+United Kingdom,sql,213
+United Kingdom,statistics,51
+United Kingdom,tableau,57
 United Kingdom,vba,6
 United States,aws,41
 United States,azure,31
 United States,bigquery,9
 United States,dax,6
 United States,dbt,9
-United States,etl,138
-United States,excel,149
+United States,etl,140
+United States,excel,152
 United States,gcp,4
 United States,git,9
 United States,hadoop,4
@@ -43,15 +43,15 @@ United States,machine learning,48
 United States,mongodb,2
 United States,nosql,1
 United States,postgresql,4
-United States,power bi,184
+United States,power bi,187
 United States,powerpoint,17
-United States,python,191
+United States,python,192
 United States,redshift,2
 United States,sas,10
 United States,snowflake,68
 United States,spark,23
 United States,spss,1
-United States,sql,460
-United States,statistics,185
-United States,tableau,95
+United States,sql,464
+United States,statistics,187
+United States,tableau,98
 United States,vba,3
